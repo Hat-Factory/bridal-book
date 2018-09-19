@@ -11,6 +11,7 @@ import {Text,
 
 import { Storage } from 'aws-amplify';
 import { CheckBox } from 'react-native-elements';
+import ImagePick from '../components/imagePicker/ImagePicker';
 
 class CreateAccount extends Component {
   static navigationOptions = {
@@ -82,10 +83,11 @@ class CreateAccount extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.form}>
-          <View style={styles.profile}>
+          {/* <View style={styles.profile}>
             <Image style={styles.profilePic} source={require('../assets/user.png')}/>
             <Text style={styles.title}>Upload a profile picture</Text>
-          </View>
+          </View> */}
+            <ImagePick />
           <View style={styles.nameForm}>
             <TextInput style={styles.inputs}
               onChangeText={(firstName) => this.setState({firstName})}

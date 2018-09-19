@@ -5,6 +5,7 @@ import SignInDrop from '../components/SignInDrop';
 import { createStackNavigator } from 'react-navigation';
 
 const LoginNavigator =  createStackNavigator({
+  CreateAccount: CreateAccount,
   SignIn: {
     screen: SignIn,
     navigationOptions: () => ({
@@ -17,7 +18,6 @@ const LoginNavigator =  createStackNavigator({
       headerBackTitle: null
     }),
   },
-  CreateAccount: CreateAccount,
   // Nav: Nav,
   SignInDrop: SignInDrop
 
