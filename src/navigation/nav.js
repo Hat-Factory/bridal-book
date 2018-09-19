@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux'
-// import { Auth } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 import LoginNavigator from './LoginNavigator';
+import AppNavigator from './AppNavigator';
 
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 

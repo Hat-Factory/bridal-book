@@ -8,7 +8,7 @@ import {Text,
   TouchableOpacity,
   Modal,
   Image} from 'react-native';
-// import CheckBox from 'react-native-check-box';
+
 import { Storage } from 'aws-amplify';
 
 class CreateAccount extends Component {
@@ -63,10 +63,6 @@ class CreateAccount extends Component {
     this.setState({
       pickerDisplayed: !this.state.pickerDisplayed
     })
-  }
-
-  checkboxTest() {
-    alert('text')
   }
 
   render() {
