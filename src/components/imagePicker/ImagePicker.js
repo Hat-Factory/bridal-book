@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { ImagePicker, Permissions } from 'expo';
-import Button from '../Button';
 import ImageButton from '../ImageButton';
 
 class ImagePick extends Component {
