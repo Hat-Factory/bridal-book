@@ -10,6 +10,7 @@ import {Text,
   Image} from 'react-native';
 
 import { Storage } from 'aws-amplify';
+import { CheckBox } from 'react-native-elements';
 
 class CreateAccount extends Component {
   static navigationOptions = {
@@ -29,7 +30,7 @@ class CreateAccount extends Component {
       hashTag: '#WeddingHashtag',
       pickerSelection: "I'm the bride",
       pickerDisplayed: false,
-      isChecked: false
+      checked: false
     };
   }
 
@@ -133,8 +134,14 @@ class CreateAccount extends Component {
             value={this.state.hashTag}
           />
           <View style={styles.checkView}>
-            
-            <Text style={styles.checkTitle}>Choose my hashtag later</Text>
+          <CheckBox
+          containerStyle={styles.checkContainer}
+          textStyle={styles.checkText}
+          title="Choose my hashtag later"
+          checked={this.state.checked}
+          onPress={() => this.setState({ checked: !this.state.checked })}
+        />
+            {/* <Text style={styles.checkTitle}>Choose my hashtag later</Text> */}
           </View>
           <TouchableHighlight
             style={styles.button}
@@ -228,7 +235,6 @@ const styles = StyleSheet.create({
     height: 50,
     width: 325,
     marginLeft: 25,
-    color: '#4a4a4a',
     paddingLeft: 20,
     borderColor: '#f1f1f1',
     borderWidth: 1,
@@ -244,9 +250,9 @@ const styles = StyleSheet.create({
   },
   checkView: {
     position: 'absolute',
-    top: 370,
+    top: 350,
     flexDirection: 'row',
-    marginLeft: 27
+    marginLeft: 9
   },
   checkTitle: {
     color: '#4a4a4a',
@@ -264,6 +270,17 @@ const styles = StyleSheet.create({
   profilePic: {
     height: 75,
     width: 75
+  },
+  checkContainer: {
+    backgroundColor: '#f8f8f8',
+    borderColor: '#f8f8f8',
+    // position: 'absolute',
+    // right: 10
+  },
+  checkText: {
+    fontWeight: 'normal',
+    color: '#4a4a4a',
+    fontSize: 12,
   }
 });
 
