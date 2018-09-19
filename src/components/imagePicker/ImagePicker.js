@@ -11,18 +11,40 @@ class ImagePick extends Component {
         image: null
     }
 
+    // _takePhoto = async () => {
+    //     let result = await ImagePicker.launchCameraAsync({
+    //         allowsEditing: false
+    //     });
+
+    //     console.log(result);
+
+    //     if (!result.cancelled) {
+    //         this.setState({image: result.uri});
+    //     }
+    // }
+
     _takePhoto = async () => {
-        let result = await ImagePicker.launchCameraAsync({
-            allowsEditing: false
+      const {
+        status: cameraPerm
+      } = await Permissions.askAsync(Permissions.CAMERA);
+  
+      const {
+        status: cameraRollPerm
+      } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+  
+      // only if user allows permission to camera AND camera roll
+      if (cameraPerm === 'granted' && cameraRollPerm === 'granted') {
+        let pickerResult = await ImagePicker.launchCameraAsync({
+          allowsEditing: true,
+          aspect: [4, 3],
         });
-
-        console.log(result);
-
-        if (!result.cancelled) {
-            this.setState({image: result.uri});
+        if (!pickerResult.cancelled) {
+          this.setState({image: pickerResult.uri});
         }
-    }
-    
+        // this._handleImagePicked(pickerResult);
+      }
+    };
+
     _pickImage = async () => {
       const {
         status: cameraRollPerm
