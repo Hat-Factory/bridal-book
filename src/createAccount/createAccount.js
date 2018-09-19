@@ -104,7 +104,7 @@ class CreateAccount extends Component {
               <Image style={styles.dropDownImg} source={require("../assets/down-arrow.png")}/>
             </TouchableOpacity>
 
-            <Modal visible={this.state.pickerDisplayed} animationType={"slide"} transparent={true}>
+            <Modal visible={this.state.pickerDisplayed}  transparent={true}>
               <View style={{ padding: 20,
                 position: 'absolute',
                 top: 292,
@@ -228,7 +228,6 @@ const styles = StyleSheet.create({
     height: 50,
     width: 325,
     marginLeft: 25,
-    fontSize: 12,
     color: '#4a4a4a',
     paddingLeft: 20,
     borderColor: '#f1f1f1',
