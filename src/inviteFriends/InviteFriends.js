@@ -23,10 +23,10 @@ import {Text,
             <Text style={styles.desc}>Now that you've made you're profile, let's invite your bridal party</Text>
           </View>
           <TouchableOpacity style={styles.inviteButton}>
-            <Text>GET STARTED</Text>
+            <Text style={styles.buttonText}>GET STARTED</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.laterButton}>
-            <Text>I'LL INVITE THEM LATER</Text>
+            <Text style={styles.buttonText}>I'LL INVITE THEM LATER</Text>
           </TouchableOpacity>
         </View>
       )
@@ -79,5 +79,10 @@ import {Text,
       height: 50,
       backgroundColor: '#adacad',
       marginTop: 20,
+    },
+    buttonText: {
+      color: '#fff',
+      fontSize: 14,
+      fontWeight:'bold'
     }
   })
