@@ -9,6 +9,20 @@ import {Text,
   Image} from 'react-native';
 
   class InviteFriends extends Component {
+    static navigationOptions = ({navigation}) => ({
+      title: 'Welcome',
+      headerRight: 
+        <TouchableOpacity onPress={() => navigation.navigate('SignInDrop')}>
+          <Image source={require('../assets/menu.png')} 
+            style={{marginRight: 15}}/>
+        </TouchableOpacity>
+      ,
+      headerTitleStyle: {
+        color: '#67769a',
+        fontWeight: 'normal'
+      }
+    });
+
     constructor(props){
       super(props)
 
