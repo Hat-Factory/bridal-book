@@ -27,7 +27,10 @@ class SignInModal extends Component {
           That's why we use two-factor authentication every step of the way. 
           Don't worry, you'll only have to sign in this one time. 
         </Text>
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight 
+        style={styles.button}
+        onPress={this.props.navigation.navigate('SignIn')}
+        >
           <Text style={styles.buttonDesc}>Sign In</Text>
         </TouchableHighlight>
       </View>
