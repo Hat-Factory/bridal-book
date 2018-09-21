@@ -29,7 +29,7 @@ class SignInModal extends Component {
         </Text>
         <TouchableHighlight 
         style={styles.button}
-        onPress={this.props.navigation.navigate('SignIn')}
+        onPress={() => this.props.navigation.navigate('SignIn')}
         >
           <Text style={styles.buttonDesc}>Sign In</Text>
         </TouchableHighlight>

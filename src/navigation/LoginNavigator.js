@@ -8,7 +8,6 @@ import { createStackNavigator } from 'react-navigation';
 
 const LoginNavigator =  createStackNavigator({
   // InviteFriends: InviteFriends,
-  SignInModal: SignInModal,
   SignIn: {
     screen: SignIn,
     navigationOptions: () => ({
@@ -21,6 +20,7 @@ const LoginNavigator =  createStackNavigator({
       headerBackTitle: null
     }),
   },
+  SignInModal: SignInModal,
   CreateAccount: CreateAccount,
   // Nav: Nav,
   SignInDrop: SignInDrop

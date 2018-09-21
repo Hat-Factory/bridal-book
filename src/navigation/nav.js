@@ -29,6 +29,7 @@ class Nav extends Component {
   }
 
   async componentWillReceiveProps(nextProps) {
+    // console.log(this.props.auth.user.pool.clientId)
     try {
       const user = await Auth.currentAuthenticatedUser()
       this.setState({ user })
