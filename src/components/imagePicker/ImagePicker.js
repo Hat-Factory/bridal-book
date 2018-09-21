@@ -3,24 +3,16 @@ import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { ImagePicker, Permissions } from 'expo';
 import ImageButton from '../ImageButton';
+import { connect } from 'react-redux';
+import { addImage } from '../../actions';
 
 class ImagePick extends Component {
 
     state = {
-        image: null
+        image: null,
+        uploading: false
     }
 
-    // _takePhoto = async () => {
-    //     let result = await ImagePicker.launchCameraAsync({
-    //         allowsEditing: false
-    //     });
-
-    //     console.log(result);
-
-    //     if (!result.cancelled) {
-    //         this.setState({image: result.uri});
-    //     }
-    // }
 
     _takePhoto = async () => {
       const {
@@ -40,7 +32,8 @@ class ImagePick extends Component {
         if (!pickerResult.cancelled) {
           this.setState({image: pickerResult.uri});
         }
-        // this._handleImagePicked(pickerResult);
+        const blob = await this.handleImage(pickerResult)
+        await this.props.dispatchImage(blob)
       }
     };
 
@@ -55,13 +48,22 @@ class ImagePick extends Component {
           allowsEditing: true,
           aspect: [4, 3],
         });
-  
-        // this._handleImagePicked(pickerResult);
+
       if (!pickerResult.cancelled) {
           this.setState({image: pickerResult.uri});
         }
+        const blob = await this.handleImage(pickerResult)
+        await this.props.dispatchImage(blob)
       }
     };
+
+    handleImage = (pickerResult) => {
+      return {
+        uri: pickerResult.uri,
+        name: 'photo.jpg',
+        type: 'image/jpeg'
+      }
+    }
 
     render() {
         let { image } = this.state;
@@ -122,4 +124,9 @@ const styles = {
   }
 }
 
-export default ImagePick;
+const mapDispatchToProps = (dispatch) => ({
+  dispatchImage: image => dispatch(addImage(image)),
+})
+
+export default connect(null, mapDispatchToProps)(ImagePick);
+

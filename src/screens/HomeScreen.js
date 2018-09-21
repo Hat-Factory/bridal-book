@@ -1,20 +1,5 @@
-// import React from 'react';
-// import {
-//   Image,
-//   Platform,
-//   ScrollView,
-//   StyleSheet,
-//   Text,
-//   TouchableOpacity,
-//   View,
-// } from 'react-native';
 import { WebBrowser } from 'expo';
-
-import { MonoText } from '../components/StyledText';
-
-
-
-import React from 'react'
+import React, { Component } from 'react'
 import {
   View,
   Text,
@@ -26,24 +11,31 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-import { connect } from 'react-redux'
-import { Auth } from 'aws-amplify'
+import { connect } from 'react-redux';
+import { Auth } from 'aws-amplify';
 
-import { logOut } from '../actions'
-import { colors } from '../theme'
-const { width, height } = Dimensions.get('window')
+import { logOut } from '../actions';
+import { colors } from '../theme';
 
-class Home extends React.Component {
+
+class Home extends Component {
   static navigationOptions = {
     title: 'Home',
   };
-  state = {
-    username: ''
+  constructor(props){
+    super(props)
+
+    this.state = {
+      username: ''
+    }
   }
-  AnimatedScale = new Animated.Value(1)
+
+
   componentDidMount() {
-    this.animate()
+  
   }
+
+
   logout() {
     Auth.signOut()
       .then(() => {
@@ -53,28 +45,11 @@ class Home extends React.Component {
         console.log('err: ', err)
       })
   }
+
   navigate() {
     this.props.navigation.navigate('Route1')
   }
-  animate() {
-    Animated.timing(
-      this.AnimatedScale,
-      {
-        toValue: .8,
-        duration: 1250,
-        useNativeDriver: true
-      }
-    ).start(() => {
-      Animated.timing(
-        this.AnimatedScale,
-        {
-          toValue: 1,
-          duration: 1250,
-          useNativeDriver: true
-        }
-      ).start(() => this.animate())
-    })
-  }
+
   render() {
     return (
       <View style={styles.container}>

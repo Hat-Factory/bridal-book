@@ -20,7 +20,7 @@ class CreateAccount extends Component {
     title: 'Create Account',
     headerTitleStyle: {
       color: '#67769a',
-      fontWeight: 'normal'
+      fontWeight: 'normal',
     }
   };
 
@@ -33,7 +33,9 @@ class CreateAccount extends Component {
       hashTag: '#WeddingHashtag',
       pickerSelection: "I'm the bride",
       pickerDisplayed: false,
-      checked: false
+      checked: false,
+      userID: null,
+      image: null
     };
   }
 
@@ -47,12 +49,15 @@ class CreateAccount extends Component {
     };
 
     let jsonFile = JSON.stringify(file)
-    let name = 'userAccountInfo.json';
+    let name = this.state.userID;
     const access = { level: "public" }; // note the access path
-    Storage.configure({
-      bucket: 'bridalbook-userfiles-mobilehub-1144877802'
-  });
-    Storage.put(name, jsonFile, access);
+
+    // Storage.configure({
+    //   bucket: 'bridalbook-userfiles-mobilehub-1144877802'
+  // });
+    // Storage.put(name, jsonFile, access);
+    this.props.navigation.navigate('Home');
+    console.log(this.props.image)
   }
 
   setPickerValue(newValue) {
@@ -69,8 +74,17 @@ class CreateAccount extends Component {
     })
   }
 
-  componentDidMount() {
-    console.log(this.props.auth)
+  async componentDidMount() {
+    let userID =   this.props.auth.user.pool.clientId 
+    console.log(this.props.image)
+   await this.setState({ userID })
+  }
+
+  async componentWillReceiveProps(nextProps) {
+    console.log(this.props.image)
+    await this.setState({image: this.props.image})
+    console.log(this.props.image)
+
   }
 
   render() {
@@ -88,10 +102,6 @@ class CreateAccount extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.form}>
-          {/* <View style={styles.profile}>
-            <Image style={styles.profilePic} source={require('../assets/user.png')}/>
-            <Text style={styles.title}>Upload a profile picture</Text>
-          </View> */}
             <ImagePick />
           <View style={styles.nameForm}>
             <TextInput style={styles.inputs}
@@ -291,6 +301,7 @@ const styles = StyleSheet.create({
 
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  image: state.image
 })
 export default connect(mapStateToProps)(CreateAccount);
