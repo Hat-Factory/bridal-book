@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Auth } from 'aws-amplify';
 import LoginNavigator from './LoginNavigator';
 import AppNavigator from './AppNavigator';
+import Tabs from '../auth/Tabs';
 
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 

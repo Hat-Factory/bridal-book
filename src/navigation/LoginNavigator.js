@@ -3,10 +3,12 @@ import SignUp from '../auth/SignUp';
 import CreateAccount from '../createAccount/createAccount';
 import SignInDrop from '../components/SignInDrop';
 import InviteFriends from '../inviteFriends/InviteFriends';
+import SignInModal from '../components/SignInModal';
 import { createStackNavigator } from 'react-navigation';
 
 const LoginNavigator =  createStackNavigator({
-  InviteFriends: InviteFriends,
+  // InviteFriends: InviteFriends,
+  SignInModal: SignInModal,
   SignIn: {
     screen: SignIn,
     navigationOptions: () => ({

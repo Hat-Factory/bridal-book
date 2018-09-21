@@ -12,6 +12,8 @@ import {Text,
 import { Storage } from 'aws-amplify';
 import { CheckBox } from 'react-native-elements';
 import ImagePick from '../components/imagePicker/ImagePicker';
+import { connect } from 'react-redux';
+
 
 class CreateAccount extends Component {
   static navigationOptions = {
@@ -67,8 +69,11 @@ class CreateAccount extends Component {
     })
   }
 
-  render() {
+  componentDidMount() {
+    console.log(this.props.auth)
+  }
 
+  render() {
     const pickerValues = [
       {
         title: "I'm the bride",
@@ -213,8 +218,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 12,
     color: '#4a4a4a',
-    // marginTop: 50,
-    // marginBottom: 40,
     marginLeft: 25
   },
   buttonText: {
@@ -286,4 +289,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CreateAccount;
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps)(CreateAccount);

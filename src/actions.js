@@ -1,3 +1,4 @@
+
 import {
   LOG_IN,
   LOG_IN_SUCCESS,
@@ -166,10 +167,9 @@ export function confirmUserSignUp(username, authCode) {
       .then(data => {
         console.log('data from confirmSignUp: ', data)
         dispatch(confirmSignUpSuccess())
-        dispatch(createAccount())
-        // setTimeout(() => {
-        //   Alert.alert('Successfully Signed Up!', 'Please Sign')
-        // }, 0)
+        setTimeout(() => {
+          Alert.alert('Successfully Signed Up!', 'Please Sign')
+        }, 0)
       })
       .catch(err => {
         console.log('error signing up: ', err)
@@ -194,12 +194,5 @@ function confirmSignUpFailure(error) {
   return {
     type: CONFIRM_SIGNUP_FAILURE,
     error
-  }
-}
-
-export const createAccount = () => {
-  return {
-    type: 'CREATE_ACCOUNT',
-    new: true
   }
 }

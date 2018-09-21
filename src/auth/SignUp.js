@@ -65,15 +65,15 @@ class SignUp extends Component {
 
   confirm() {
     const { authCode, username } = this.state
-    let signIn = {
-      username: this.state.username,
-      password: this.state.password,
-      accessCode: this.state.authCode
-    }
+    // let signIn = {
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   accessCode: this.state.authCode
+    // }
 
     this.props.dispatchConfirmUser(username, authCode)
-    this.props.navigation.navigate('CreateAccount')
-    this.props.dispatchConfirmUserLogin(signIn)
+    // this.props.navigation.navigate('CreateAccount')
+    // this.props.dispatchConfirmUserLogin(signIn)
   }
 
   componentWillReceiveProps(nextProps) {
