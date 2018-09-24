@@ -13,6 +13,7 @@ import { Storage } from 'aws-amplify';
 import { CheckBox } from 'react-native-elements';
 import ImagePick from '../components/imagePicker/ImagePicker';
 import { connect } from 'react-redux';
+import Input from '../components/Input';
 
 
 class CreateAccount extends Component {
@@ -41,63 +42,33 @@ class CreateAccount extends Component {
 
   handleSubmit = async(event) => {
     event.preventDefault();
+    await this.setState({image: this.props.image})
     let file = {
       first: this.state.firstName,
       last: this.state.lastName, 
       hashTag: this.state.hashTag,
-      role: this.state.pickerSelection
+      role: this.state.pickerSelection,
+      image: this.state.image
     };
 
     let jsonFile = JSON.stringify(file)
     let name = this.state.userID;
     const access = { level: "public" }; // note the access path
 
-    // Storage.configure({
-    //   bucket: 'bridalbook-userfiles-mobilehub-1144877802'
-  // });
-    // Storage.put(name, jsonFile, access);
+    Storage.configure({
+      bucket: 'bridalbook-userfiles-mobilehub-1144877802'
+  });
+    Storage.put(name, jsonFile, access);
     this.props.navigation.navigate('Home');
-    console.log(this.props.image)
   }
 
-  setPickerValue(newValue) {
-    this.setState({
-      pickerSelection: newValue
-    })
-
-    this.togglePicker();
-  }
-
-  togglePicker() {
-    this.setState({
-      pickerDisplayed: !this.state.pickerDisplayed
-    })
-  }
 
   async componentDidMount() {
     let userID =   this.props.auth.user.pool.clientId 
-    console.log(this.props.image)
    await this.setState({ userID })
   }
 
-  async componentWillReceiveProps(nextProps) {
-    console.log(this.props.image)
-    await this.setState({image: this.props.image})
-    console.log(this.props.image)
-
-  }
-
   render() {
-    const pickerValues = [
-      {
-        title: "I'm the bride",
-        value: "I'm the bride"
-      },
-      {
-        title: "I'm a bridesmaid",
-        value: "I'm a bridesmaid"
-      }
-    ]
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -113,52 +84,19 @@ class CreateAccount extends Component {
               value={this.state.lastName}
             />
           </View>
-          <View style={styles.container}>
-            <TouchableOpacity 
-              onPress={() => this.togglePicker()} 
-              style={styles.dropDown}
-              >
-              <Text style={{color:'#4a4a4a', fontSize: 12}}>{ this.state.pickerSelection }</Text>
-              <Image style={styles.dropDownImg} source={require("../assets/down-arrow.png")}/>
-            </TouchableOpacity>
-
-            <Modal visible={this.state.pickerDisplayed}  transparent={true}>
-              <View style={{ padding: 20,
-                position: 'absolute',
-                top: 292,
-                marginLeft: 26,
-                borderTopWidth: .5,
-                borderTopColor: '#f1f1f1',
-                width: 323,
-                backgroundColor: '#fff',
-                alignItems: 'center',
-                 }}>
-              { pickerValues.map((value, index) => {
-              return <TouchableHighlight key={index} onPress={() => this.setPickerValue(value.value)} style={{ paddingTop: 4, paddingBottom: 4 }}>
-                  <Text>{ value.title }</Text>
-                </TouchableHighlight>
-            })}
-            <TouchableHighlight onPress={() => this.togglePicker()} style={{ paddingTop: 4, paddingBottom: 4 }}>
-              <Text style={{ color: '#999' }}>Cancel</Text>
-            </TouchableHighlight>
-            </View>
-          </Modal>
-        </View>
-            <Text style={styles.hashTagTitle}>Choose Your Wedding Hashtag!</Text>
-          <TextInput 
-            style={styles.hashtagInput}
-            onChangeText={(hashTag) => this.setState({hashTag})}
-            value={this.state.hashTag}
-          />
-          <View style={styles.checkView}>
-          <CheckBox
-          containerStyle={styles.checkContainer}
-          textStyle={styles.checkText}
-          title="Choose my hashtag later"
-          checked={this.state.checked}
-          onPress={() => this.setState({ checked: !this.state.checked })}
-        />
-            {/* <Text style={styles.checkTitle}>Choose my hashtag later</Text> */}
+          <View style={styles.inputContainer}>
+            <Input 
+              placeholder={'Wedding Date'}
+              style={styles.inputDetails}
+            />
+            <Input 
+              placeholder={'Wedding Location'}
+              style={styles.inputDetails}
+            />
+            <Input 
+              placeholder={'Wedding Theme'}
+              style={styles.inputDetails}
+            />
           </View>
           <TouchableHighlight
             style={styles.button}
@@ -166,6 +104,7 @@ class CreateAccount extends Component {
           >
           <Text style={styles.buttonText}>Next</Text>
           </TouchableHighlight>
+
         </View>
       </View>
     );
@@ -192,27 +131,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     fontSize: 12,
     color: '#4a4a4a'
-  },
-  hashtagInput: {
-    backgroundColor: '#fff',
-    borderColor: '#f1f1f1',
-    borderWidth: 1,
-    width: 325,
-    height: 50,
-    marginLeft: 25,
-    position: 'absolute',
-    top: 290,
-    fontSize: 12,
-    color: '#4a4a4a',
-    paddingLeft: 20,
-  },
-  hashTagTitle: {
-    fontSize: 12,
-    color: '#4a4a4a',
-    left: 100,
-    right: 25,
-    position: 'absolute',
-    top: 250
+
   },
   button: {
     justifyContent: 'center',
@@ -238,41 +157,12 @@ const styles = StyleSheet.create({
   nameForm: {
     flexDirection: 'row'
   },
-  dropDown: {
-    backgroundColor: '#fff',
-    padding: 10,
-    paddingTop: 10,
-    paddingRight: 15,
-    marginBottom: 20,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
-    height: 50,
-    width: 325,
-    marginLeft: 25,
-    paddingLeft: 20,
-    borderColor: '#f1f1f1',
-    borderWidth: 1,
-  },
+
   dropDownImg: {
     marginRight: 8,
     marginTop: 2,
     height: 13,
     width: 13,
-  },
-  checkbox: {
-    backgroundColor: '#fff'
-  },
-  checkView: {
-    position: 'absolute',
-    top: 350,
-    flexDirection: 'row',
-    marginLeft: 9
-  },
-  checkTitle: {
-    color: '#4a4a4a',
-    fontSize: 12,
-    marginLeft: 10
   },
   profile: {
     flexDirection: 'row',
@@ -286,15 +176,20 @@ const styles = StyleSheet.create({
     height: 75,
     width: 75
   },
-  checkContainer: {
-    backgroundColor: '#f8f8f8',
-    borderColor: '#f8f8f8',
-    // position: 'absolute',
-    // right: 10
+  inputContainer: {
+    marginLeft: 25,
+    marginTop: 20,
   },
-  checkText: {
-    fontWeight: 'normal',
+  inputDetails: {
     color: '#4a4a4a',
+    paddingLeft: 20,
+    marginBottom: 15,
+    fontSize: 16,
+    height: 50,
+    borderColor: '#f1f1f1',
+    borderWidth: 1,
+    width: 325,
+    backgroundColor: '#fff',
     fontSize: 12,
   }
 });

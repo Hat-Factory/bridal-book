@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     width: 325,
     backgroundColor: '#fff',
     fontSize: 12,
-    color: '#4a4a4a'
+    // color: '#4a4a4a'
   }
 })
