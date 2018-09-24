@@ -14,9 +14,10 @@ import {
 
 import { Auth } from 'aws-amplify';
 import { connect } from 'react-redux';
+import { Storage } from 'aws-amplify';
+import xmlToJson from '../xmlCleaner';
 
 import { authenticate, confirmUserLogin } from '../actions';
-// import {  colors } from '../theme';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -56,9 +57,23 @@ class SignIn extends Component {
     this.props.dispatchAuthenticate(username, password)
   }
 
-  confirm() {
+  async confirm() {
     const { authCode } = this.state
-    this.props.dispatchConfirmUserLogin(authCode)
+    await this.props.dispatchConfirmUserLogin(authCode)
+
+    let userID =   this.props.auth.user.pool.clientId 
+
+    await Storage.configure({
+      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
+  });
+    let info = await Storage.get(`${userID}`, { level: 'protected' })
+    await console.log('***',info)
+
+    const data = await fetch(info)
+    // const response = await data.json()
+    let promiseClean = await Promise.resolve(data)
+    let clean = await xmlToJson(promiseClean)
+    console.log(clean)
   }
   
   render() {

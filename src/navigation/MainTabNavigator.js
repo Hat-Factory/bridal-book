@@ -9,7 +9,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import CreateAccount from '../createAccount/createAccount';
 
 const HomeStack = createStackNavigator({
-  CreateAccount,
+  // CreateAccount,
   Home: HomeScreen,
 });
 

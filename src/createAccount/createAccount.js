@@ -31,10 +31,9 @@ class CreateAccount extends Component {
     this.state = {
       firstName: 'First name',
       lastName: 'Last name',
-      hashTag: '#WeddingHashtag',
-      pickerSelection: "I'm the bride",
-      pickerDisplayed: false,
-      checked: false,
+      weddingDate: '',
+      weddingTheme: '',
+      weddingLocation: '',
       userID: null,
       image: null
     };
@@ -46,17 +45,15 @@ class CreateAccount extends Component {
     let file = {
       first: this.state.firstName,
       last: this.state.lastName, 
-      hashTag: this.state.hashTag,
-      role: this.state.pickerSelection,
       image: this.state.image
     };
 
     let jsonFile = JSON.stringify(file)
     let name = this.state.userID;
-    const access = { level: "public" }; // note the access path
+    const access = { level: "protected" };
 
     Storage.configure({
-      bucket: 'bridalbook-userfiles-mobilehub-1144877802'
+      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
   });
     Storage.put(name, jsonFile, access);
     this.props.navigation.navigate('Home');
@@ -77,25 +74,28 @@ class CreateAccount extends Component {
           <View style={styles.nameForm}>
             <TextInput style={styles.inputs}
               onChangeText={(firstName) => this.setState({firstName})}
-              value={this.state.firstName}
+              placeholder={'First name'}
             />
             <TextInput style={styles.inputs}
               onChangeText={(lastName) => this.setState({lastName})}
-              value={this.state.lastName}
+              placeholder={'Last name'}
             />
           </View>
           <View style={styles.inputContainer}>
             <Input 
               placeholder={'Wedding Date'}
               style={styles.inputDetails}
+              onChangeText={(weddingDate) => this.setState({weddingDate})}
             />
             <Input 
               placeholder={'Wedding Location'}
               style={styles.inputDetails}
+              onChangeText={(weddingLocation) => this.setState({weddingLocation})}
             />
             <Input 
               placeholder={'Wedding Theme'}
               style={styles.inputDetails}
+              onChangeText={(weddingTheme) => this.setState({weddingTheme})}
             />
           </View>
           <TouchableHighlight

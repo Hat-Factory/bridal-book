@@ -66,7 +66,7 @@ class SignUp extends Component {
   confirm() {
     const { authCode, username } = this.state
     this.props.dispatchConfirmUser(username, authCode)
-    this.props.navigation.navigate('SignIn')
+    this.props.navigation.navigate('SignInModal')
   }
 
   componentWillReceiveProps(nextProps) {

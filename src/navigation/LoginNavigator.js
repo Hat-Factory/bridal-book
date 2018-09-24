@@ -21,8 +21,7 @@ const LoginNavigator =  createStackNavigator({
     }),
   },
   SignInModal: SignInModal,
-  CreateAccount: CreateAccount,
-  // Nav: Nav,
+  // CreateAccount: CreateAccount,
   SignInDrop: SignInDrop
 
 })
