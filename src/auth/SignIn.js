@@ -63,17 +63,17 @@ class SignIn extends Component {
 
     let userID =   this.props.auth.user.pool.clientId 
 
-    await Storage.configure({
-      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
-  });
-    let info = await Storage.get(`${userID}`, { level: 'protected' })
-    await console.log('***',info)
+  //   await Storage.configure({
+  //     bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
+  // });
+  //   let info = await Storage.get(`${userID}`, { level: 'protected' })
+  //   await console.log('***',info)
 
-    const data = await fetch(info)
-    // const response = await data.json()
-    let promiseClean = await Promise.resolve(data)
-    let clean = await xmlToJson(promiseClean)
-    console.log(clean)
+  //   const data = await fetch(info)
+  //   // const response = await data.json()
+  //   let promiseClean = await Promise.resolve(data)
+  //   let clean = await xmlToJson(promiseClean)
+  //   console.log(clean)
   }
   
   render() {
