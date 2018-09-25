@@ -7,9 +7,11 @@ import SignInModal from '../components/SignInModal';
 import { createStackNavigator } from 'react-navigation';
 
 import TaskHome from '../taskHome/TaskHome';
+import CreateTask from '../createTask/createTask';
 
 const LoginNavigator =  createStackNavigator({
   TaskHome: TaskHome,
+  CreateTask: CreateTask,
   // InviteFriends: InviteFriends,
   SignIn: {
     screen: SignIn,

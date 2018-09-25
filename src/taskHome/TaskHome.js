@@ -14,7 +14,7 @@ import {Text,
     static navigationOptions = ({navigation}) => ({
       title: 'Tasks',
       headerRight: 
-        <TouchableOpacity onPress={() => navigation.navigate('SignInDrop')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CreateTask')}>
           <Image source={require('../assets/pencil.png')} 
             style={{marginRight: 15, height: 20, width: 20}}/>
         </TouchableOpacity>
@@ -33,7 +33,9 @@ import {Text,
         </View>
           <View style={styles.newTask}>
             <View style={styles.redBar}></View>
-            <TouchableOpacity style={styles.NewTaskTouch}>
+            <TouchableOpacity 
+              style={styles.NewTaskTouch}
+              onPress={() => this.props.navigation.navigate('CreateTask')}  >
               <Text style={styles.newTaskText}>Click here to add a task!</Text>
               <Image source={require('../assets/pencil.png')} 
             style={{marginRight: 15, height: 20, width: 20}}/>
