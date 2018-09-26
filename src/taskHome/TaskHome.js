@@ -43,7 +43,7 @@ import DisplayTasks from '../displayTasks/displayTasks';
         <View style={styles.titleContainer}>
           <Text style={styles.title}>My To-Do List</Text>
         </View>
-          <View style={styles.newTask}>
+          <View style={[styles.newTask, this.props.tasks.length && styles.noNewTask]}>
             <View style={styles.redBar}></View>
             <TouchableOpacity 
               style={styles.NewTaskTouch}
@@ -105,5 +105,8 @@ import DisplayTasks from '../displayTasks/displayTasks';
       height: 50,
       marginTop: 15,
       marginRight: 10
+    },
+    noNewTask: {
+      display: 'none'
     }
   })

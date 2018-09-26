@@ -14,7 +14,9 @@ import {Text,
     return (
       <View style={styles.container}>
         <View style={styles.redBar}></View>
-        <Text style={styles.title}>{props.taskTitle}</Text>
+        <View styles={styles.titleContainer}>
+          <Text style={styles.title}>{props.taskTitle}</Text>
+        </View>
       </View>
     )
   }
@@ -27,7 +29,8 @@ const styles = StyleSheet.create({
     width: 330,
     backgroundColor: '#fff',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginTop: 20
   },
   redBar: {
     height: 50,
@@ -37,7 +40,10 @@ const styles = StyleSheet.create({
   title: {
     color: '#4a4a4a',
     fontSize: 14,
-    marginTop: 2,
-    marginRight: 50
+    marginTop: 15,
+    marginRight: 150
   },
+  titleContainer: {
+    marginTop: 20
+  }
 })
