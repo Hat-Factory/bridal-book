@@ -28,11 +28,6 @@ import {Text,
  export default DisplayedTaskForm;
 
  const styles= StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-    alignItems: 'center',
-  },
   titleContainer: {
     height: 50,
     width: 310,

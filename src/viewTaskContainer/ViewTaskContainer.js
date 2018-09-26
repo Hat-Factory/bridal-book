@@ -16,7 +16,7 @@ import DisplayedTask from '../displayedTask/DisplayedTask';
 
 class ViewTaskContainer extends Component {
   static navigationOptions = ({navigation}) => ({
-    title: 'Create Task',
+    title: typeof(navigation.state.params)==='undefined' || typeof(navigation.state.params.title) === 'undefined' ? 'Task': navigation.state.params.title,
     headerTitleStyle: {
       color: '#67769a',
       fontWeight: 'normal'
@@ -27,7 +27,8 @@ class ViewTaskContainer extends Component {
 
     this.state= {
       checked: false,
-      tasks: {}
+      tasks: {},
+      title: ''
     }
   }
 
@@ -35,7 +36,6 @@ class ViewTaskContainer extends Component {
     let taskId = this.props.viewedTask
 
     let taskToDisplay = this.props.tasks.filter(task => {
-      // console.log(task)
       return task.id === taskId
     })
 
@@ -43,15 +43,29 @@ class ViewTaskContainer extends Component {
   }
 
   async componentDidMount(){
-    const tasks= await this.handleTask()
-      console.log(tasks)
-    // await this.setState({task})
+    await this.handleTask();   
+  }
+
+  async componentWillReceiveProps(nextProps) {
+    const {viewedTasks} = nextProps
+    let title = viewedTasks[0].taskTitle
+    await this.props.navigation.setParams({ title: title })
   }
 
   render(){
     return (
       <View style={styles.container}>
         <DisplayedTask tasks={this.state.tasks}/>
+        <View style={styles.checkBoxContainer}>
+          <CheckBox
+            checked={this.state.checked}
+            onPress={() => this.setState({ checked: !this.state.checked})}
+            containerStyle={styles.checkBox}
+            title='Complete task'
+            fontStyle={styles.checkBoxText}
+          />
+          {/* <Text style={styles.checkBoxText}>Complete Task</Text> */}
+        </View>
       </View>
     )
   }
@@ -69,5 +83,27 @@ const styles= StyleSheet.create({
     flex: 1,
     backgroundColor: '#f8f8f8',
     alignItems: 'center',
-  }
+  },
+  checkBoxContainer: {
+    flexDirection: 'row',
+    height: 50,
+    justifyContent: 'flex-start',
+    alignItems:'center',
+    width: 349,
+    marginTop: 30,
+    // paddingRight: 10
+  },
+  checkBox: {
+    backgroundColor: '#f8f8f8',
+    borderColor: '#f8f8f8',
+    height: 45,
+    width: 300,
+    // justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+  checkBoxText: {
+    color: '#4a4a4a',
+    fontWeight: 'normal',
+    // marginRight: 270
+  },
 })
