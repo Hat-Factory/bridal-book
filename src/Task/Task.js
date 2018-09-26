@@ -8,6 +8,8 @@ import {Text,
   TouchableOpacity,
   Modal,
   Image} from 'react-native';
+import { withNavigation } from 'react-navigation';
+
 
 import { CheckBox } from 'react-native-elements';
 import { connect } from 'react-redux';
@@ -22,11 +24,13 @@ class Task extends Component {
     }
   }
 
-  handlePress = () => {
+  handlePress = (event) => {
+    event.preventDefault()
     let id= this.props.id
     // console.log(id)
     this.props.dispatchTaskID(id)
-    this.props.navigation.navigate('ViewTask')
+    this.props.navigation.navigate('ViewTaskContainer')
+    // this.props.navigation.navigate('SignUp')
   }
 
   render(){
@@ -54,7 +58,7 @@ const mapDispatchToProps= dispatch => ({
   dispatchTaskID: (id) => dispatch(addTaskID(id))
 })
 
-export default connect(null, mapDispatchToProps)(Task);
+export default withNavigation(connect(null, mapDispatchToProps)(Task));
 
 const styles = StyleSheet.create({
   container: {
