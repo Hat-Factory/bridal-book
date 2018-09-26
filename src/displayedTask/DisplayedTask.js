@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Text, 
   View, 
   StyleSheet, 
@@ -12,16 +12,37 @@ import {Text,
   import { connect } from 'react-redux';
   import Task from '../Task/Task';
 
- const DisplayTask = (props) => {
-   console.log(props)
-   let displayTasks = props.tasks.map((task, index) => {
-     return (
-       <Task {...task} key={index}/>
-     )
-   })
+ const DisplayedTask = ({tasks}) => {
+  // //  console.log(props)
+  //  let taskId = props.viewedTask
+
+  //  let taskIDToDisplay = props.tasks.filter(task => {
+  //    // console.log(task)
+  //    return task.id === taskId
+  //  })
+
+  //  console.log(taskIDToDisplay)
+  //  let displayedTaskStuff = (taskIDToDisplay) => {
+  //    return (
+  //       <View>
+  //         <Text>{taskIDToDisplay.taskTitle}</Text>
+  //       </View>
+  //    )
+  //  }
+  console.log(tasks)
+    let taskArray = task.map(tasked => {
+      return <DisplayedTaskForm  {...task}/>
+    })
     return (
       <View>
-        {displayTasks}
+        {taskArray}
       </View>
     )
   }
+
+const mapStateToProps = state => ({
+  tasks: state.tasks,
+  viewedTask: state.viewedTask
+})
+
+  export default connect(mapStateToProps,null)(DisplayedTask);

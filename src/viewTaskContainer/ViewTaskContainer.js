@@ -12,6 +12,8 @@ import {Text,
 import { CheckBox } from 'react-native-elements';
 import { connect } from 'react-redux';
 
+import DisplayedTask from '../displayedTask/DisplayedTask';
+
 class ViewTaskContainer extends Component {
   static navigationOptions = ({navigation}) => ({
     title: 'Create Task',
@@ -24,7 +26,8 @@ class ViewTaskContainer extends Component {
     super(props)
 
     this.state= {
-      checked: false
+      checked: false,
+      tasks: {}
     }
   }
 
@@ -35,19 +38,20 @@ class ViewTaskContainer extends Component {
       // console.log(task)
       return task.id === taskId
     })
-    // console.log(taskId)
-    // console.log(taskToDisplay)
+
+    this.setState({tasks: taskToDisplay})
+  }
+
+  async componentDidMount(){
+    const tasks= await this.handleTask()
+      console.log(tasks)
+    // await this.setState({task})
   }
 
   render(){
     return (
       <View>
-        <Button
-        title='hello'
-        onPress={this.handleTask}>
-
-        </Button>
-
+        <DisplayedTask tasks={this.state.tasks}/>
       </View>
     )
   }
