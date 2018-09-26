@@ -1,4 +1,4 @@
-const intitialState = null;
+const intitialState = null
 
 const viewTaskReducer = (state = intitialState, action) => {
   switch (action.type) {

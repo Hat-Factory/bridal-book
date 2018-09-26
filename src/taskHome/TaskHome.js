@@ -13,7 +13,7 @@ import {connect} from 'react-redux';
 
 // import Task from '../Task/Task';
 import DisplayTasks from '../displayTasks/displayTasks';
-
+import PresetTasks from '../PresetTasks/PresetTasks';
   class TaskHome extends Component {
     static navigationOptions = ({navigation}) => ({
       title: 'Tasks',
@@ -53,6 +53,7 @@ import DisplayTasks from '../displayTasks/displayTasks';
             style={{marginRight: 15, height: 20, width: 20}}/>
             </TouchableOpacity>
           </View>
+          <PresetTasks />
           <DisplayTasks />
         </View>
       )
