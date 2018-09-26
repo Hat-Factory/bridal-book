@@ -203,3 +203,10 @@ export const addImage = (image) => {
     image
   }
 }
+
+export const addTask = (task) => {
+  return {
+    type: 'ADD_TASK',
+    task
+  }
+}

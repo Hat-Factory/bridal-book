@@ -9,6 +9,10 @@ import {Text,
   Modal,
   Image} from 'react-native';
 
+import {connect} from 'react-redux';
+
+// import Task from '../Task/Task';
+import DisplayTasks from '../displayTasks/displayTasks';
 
   class TaskHome extends Component {
     static navigationOptions = ({navigation}) => ({
@@ -24,6 +28,14 @@ import {Text,
         fontWeight: 'normal'
       }
     });
+
+    displayTasks = () => {
+      let tasks= this.props.tasks
+
+      let renderTasks= tasks.map(task => {
+        return (<Task {...props} />)
+      })
+    }
 
     render(){
       return (
@@ -41,24 +53,25 @@ import {Text,
             style={{marginRight: 15, height: 20, width: 20}}/>
             </TouchableOpacity>
           </View>
+          <DisplayTasks />
         </View>
       )
     }
   }
 
-  export default TaskHome;
+  const mapStateToProps = state => ({
+    tasks: state.tasks
+  })
+  export default connect(mapStateToProps, null)(TaskHome);
 
   const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#f8f8f8',
       alignItems: 'center',
-      // textAlign: 'left'
-      // justifyContent: 'center'
     },
     titleContainer: {
       width: 350,
-      textAlign: 'left',
       marginLeft: 27,
       marginBottom: 10
     },
@@ -83,7 +96,7 @@ import {Text,
     },
     redBar: {
       height: 50,
-      width: 5,
+      width: 3,
       backgroundColor: '#ed7766'
     },
     NewTaskTouch:{
