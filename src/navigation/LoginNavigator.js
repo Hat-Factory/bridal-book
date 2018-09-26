@@ -9,12 +9,13 @@ import { createStackNavigator } from 'react-navigation';
 import TaskHome from '../taskHome/TaskHome';
 import CreateTask from '../createTask/createTask';
 import ViewTaskContainer from '../viewTaskContainer/ViewTaskContainer';
-import Task from '../Task/Task'
+import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 const LoginNavigator =  createStackNavigator({
+  // DisplayedTaskForm: DisplayedTaskForm,
   TaskHome: TaskHome,
   CreateTask: CreateTask,
   ViewTaskContainer: ViewTaskContainer,
-  Task: Task,
+  // Task: Task,
   // InviteFriends: InviteFriends,
   SignIn: {
     screen: SignIn,

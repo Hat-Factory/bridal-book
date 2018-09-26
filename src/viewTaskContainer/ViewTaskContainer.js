@@ -50,7 +50,7 @@ class ViewTaskContainer extends Component {
 
   render(){
     return (
-      <View>
+      <View style={styles.container}>
         <DisplayedTask tasks={this.state.tasks}/>
       </View>
     )
@@ -63,3 +63,11 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, null)(ViewTaskContainer);
+
+const styles= StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8f8f8',
+    alignItems: 'center',
+  }
+})

@@ -14,22 +14,6 @@ import Task from '../Task/Task';
 import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 
  const DisplayedTask = ({tasks}) => {
-  // //  console.log(props)
-  //  let taskId = props.viewedTask
-
-  //  let taskIDToDisplay = props.tasks.filter(task => {
-  //    // console.log(task)
-  //    return task.id === taskId
-  //  })
-
-  //  console.log(taskIDToDisplay)
-  //  let displayedTaskStuff = (taskIDToDisplay) => {
-  //    return (
-  //       <View>
-  //         <Text>{taskIDToDisplay.taskTitle}</Text>
-  //       </View>
-  //    )
-  //  }
   console.log(tasks)
     let taskArray = tasks.map(task => {
       return <DisplayedTaskForm  {...task}/>
