@@ -9,8 +9,19 @@ import {Text,
   Modal,
   Image} from 'react-native';
 
- const Task = (props) => {
-   console.log(props)
+import { CheckBox } from 'react-native-elements';
+
+class Task extends Component {
+  constructor(props){
+    super(props)
+
+    this.state= {
+      checked: false
+    }
+  }
+
+
+  render(){
     return (
       <View style={styles.container}>
         <View style={styles.redBar}></View>
@@ -20,6 +31,7 @@ import {Text,
       </View>
     )
   }
+}
 
 export default Task;
 
