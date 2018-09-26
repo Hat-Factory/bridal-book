@@ -12,10 +12,11 @@ import {Text,
   import { connect } from 'react-redux';
   import Task from '../Task/Task';
 
- const DisplayedTaskForm = ({tasks}) => {
+ const DisplayedTaskForm = ({taskTitle, taskDesc}) => {
   return (
     <View>
-      
+      <Text>{taskTitle}</Text>
+      <Text>{taskDesc}</Text>
     </View>
   )
  }

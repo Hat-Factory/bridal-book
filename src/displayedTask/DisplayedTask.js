@@ -9,8 +9,9 @@ import {Text,
   Modal,
   Image} from 'react-native';
 
-  import { connect } from 'react-redux';
-  import Task from '../Task/Task';
+import { connect } from 'react-redux';
+import Task from '../Task/Task';
+import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 
  const DisplayedTask = ({tasks}) => {
   // //  console.log(props)
@@ -30,7 +31,7 @@ import {Text,
   //    )
   //  }
   console.log(tasks)
-    let taskArray = task.map(tasked => {
+    let taskArray = tasks.map(task => {
       return <DisplayedTaskForm  {...task}/>
     })
     return (
