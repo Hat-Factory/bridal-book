@@ -26,8 +26,13 @@ class Task extends Component {
       <View style={styles.container}>
         <View style={styles.redBar}></View>
         <View styles={styles.titleContainer}>
-          <Text style={styles.title}>{props.taskTitle}</Text>
+          <Text style={styles.title}>{this.props.taskTitle}</Text>
         </View>
+        <CheckBox
+          checked={this.state.checked}
+          onPress={() => this.setState({ checked: !this.state.checked})}
+          containerStyle={styles.checkBox}
+        />
       </View>
     )
   }
@@ -57,5 +62,10 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     marginTop: 20
+  },
+  checkBox: {
+    backgroundColor: '#fff',
+    borderColor: '#fff',
+    height: 45
   }
 })
