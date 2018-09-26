@@ -43,7 +43,8 @@ class CreateTask extends Component {
 
     let task = {
       taskTitle: this.state.taskTitle,
-      taskDesc: this.state.taskDesc
+      taskDesc: this.state.taskDesc,
+      id: Date.now()
     }
 
     await this.props.dispatchTask(task)

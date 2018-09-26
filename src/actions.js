@@ -210,3 +210,8 @@ export const addTask = (task) => {
     task
   }
 }
+
+export const addTaskID = (id) => {
+  type: 'ADD_TASK_ID',
+  id
+}

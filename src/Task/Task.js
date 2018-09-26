@@ -10,6 +10,8 @@ import {Text,
   Image} from 'react-native';
 
 import { CheckBox } from 'react-native-elements';
+import { connect } from 'react-redux';
+import { addTaskID } from '../actions';
 
 class Task extends Component {
   constructor(props){
@@ -20,14 +22,24 @@ class Task extends Component {
     }
   }
 
+  handlePress = () => {
+    let id= this.props.id
+    // console.log(id)
+    this.props.dispatchTaskID(id)
+    this.props.navigation.navigate('ViewTask')
+  }
 
   render(){
     return (
       <View style={styles.container}>
         <View style={styles.redBar}></View>
-        <View styles={styles.titleContainer}>
-          <Text style={styles.title}>{this.props.taskTitle}</Text>
-        </View>
+        <TouchableHighlight
+          onPress={this.handlePress}
+        >
+          <View styles={styles.titleContainer}>
+            <Text style={styles.title}>{this.props.taskTitle}</Text>
+          </View>
+        </TouchableHighlight>
         <CheckBox
           checked={this.state.checked}
           onPress={() => this.setState({ checked: !this.state.checked})}
@@ -38,7 +50,11 @@ class Task extends Component {
   }
 }
 
-export default Task;
+const mapDispatchToProps= dispatch => ({
+  dispatchTaskID: (id) => dispatch(addTaskID(id))
+})
+
+export default connect(null, mapDispatchToProps)(Task);
 
 const styles = StyleSheet.create({
   container: {
