@@ -64,8 +64,10 @@ class ViewTaskContainer extends Component {
             title='Complete task'
             fontStyle={styles.checkBoxText}
           />
-          {/* <Text style={styles.checkBoxText}>Complete Task</Text> */}
         </View>
+        <TouchableHighlight style={styles.cancelButton}>
+          <Text style={styles.cancelText}>Delete Task</Text>
+        </TouchableHighlight>
       </View>
     )
   }
@@ -106,4 +108,17 @@ const styles= StyleSheet.create({
     fontWeight: 'normal',
     // marginRight: 270
   },
+  cancelButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 325,
+    height: 50,
+    backgroundColor: '#adacad',
+    marginTop: 120,
+  },
+  cancelText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight:'bold'
+  }
 })
