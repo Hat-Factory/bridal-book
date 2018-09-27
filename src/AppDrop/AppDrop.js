@@ -5,13 +5,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
-  Button
+  Button,
+  Image
 } from 'react-native'
 
 
 export default AppDrop = (props) => {
   return (
     <View style={styles.container}>
+                  <Image style={styles.profilePic} source={require('../assets/user.png')}/>
       <TouchableOpacity
         onPress={() => props.navigation.navigate('SignUp')
         }
@@ -91,5 +93,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 30,
     fontWeight:'normal'
-  }
+  },
+  profilePic: {
+    height: 75,
+    width: 75
+  },
 })
