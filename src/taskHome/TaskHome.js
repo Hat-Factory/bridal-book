@@ -43,16 +43,6 @@ import PresetTasks from '../PresetTasks/PresetTasks';
         <View style={styles.titleContainer}>
           <Text style={styles.title}>My To-Do List</Text>
         </View>
-          <View style={[styles.newTask, this.props.tasks.length && styles.noNewTask]}>
-            <View style={styles.redBar}></View>
-            <TouchableOpacity 
-              style={styles.NewTaskTouch}
-              onPress={() => this.props.navigation.navigate('CreateTask')}  >
-              <Text style={styles.newTaskText}>Click here to add a task!</Text>
-              <Image source={require('../assets/pencil.png')} 
-            style={{marginRight: 15, height: 20, width: 20}}/>
-            </TouchableOpacity>
-          </View>
           <PresetTasks />
           <DisplayTasks />
         </View>

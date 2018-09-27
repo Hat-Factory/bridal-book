@@ -44,11 +44,13 @@ class Task extends Component {
             <Text style={styles.title}>{this.props.taskTitle}</Text>
           </View>
         </TouchableHighlight>
-        <CheckBox
-          checked={this.state.checked}
-          onPress={() => this.setState({ checked: !this.state.checked})}
-          containerStyle={styles.checkBox}
-        />
+        <View style={styles.checkBoxContainer}>
+          <CheckBox
+            checked={this.state.checked}
+            onPress={() => this.setState({ checked: !this.state.checked})}
+            containerStyle={styles.checkBox}
+          />
+        </View>
       </View>
     )
   }
@@ -60,32 +62,48 @@ const mapDispatchToProps= dispatch => ({
 
 export default withNavigation(connect(null, mapDispatchToProps)(Task));
 
-const styles = StyleSheet.create({
-  container: {
-    height: 50,
-    width: 330,
-    backgroundColor: '#fff',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20
-  },
-  redBar: {
-    height: 50,
-    width: 3,
-    backgroundColor: '#ed7766'
-  },
-  title: {
-    color: '#4a4a4a',
-    fontSize: 14,
-    marginTop: 15,
-    marginRight: 150
-  },
-  titleContainer: {
-    marginTop: 20
-  },
-  checkBox: {
-    backgroundColor: '#fff',
-    borderColor: '#fff',
-    height: 45
-  }
-})
+
+  const styles = StyleSheet.create({
+    container: {
+      height: 50,
+      width: 330,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      // justifyContent: 'space-between',z
+      // alignItems: 'center',
+      marginTop: 10
+    },
+    redBar: {
+      height: 50,
+      width: 3,
+      backgroundColor: '#ed7766',
+      marginRight: 25
+    },
+    title: {
+      color: '#4a4a4a',
+      fontSize: 14,
+      marginTop: 15,
+      textAlign: 'center'
+      // marginRight: 150
+    },
+    titleContainer: {
+      marginTop: 20,
+      overflow: 'hidden',
+      width: 290,
+      height: 30,
+      justifyContent: 'flex-start'
+  
+    },
+    checkBox: {
+      backgroundColor: '#fff',
+      borderColor: '#fff',
+      height: 45,
+      // float: 'right'
+      // marginLeft: 20,
+      
+    },
+    checkBoxContainer: {
+      position: 'absolute',
+      left: 260
+    }
+  })
