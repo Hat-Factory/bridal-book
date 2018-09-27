@@ -11,9 +11,11 @@ import CreateTask from '../createTask/createTask';
 import ViewTaskContainer from '../viewTaskContainer/ViewTaskContainer';
 import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 import AppDrop from '../AppDrop/AppDrop';
+import InviteScreen from '../InviteScreen/InviteScreen';
 
 const LoginNavigator =  createStackNavigator({
   // DisplayedTaskForm: DisplayedTaskForm,
+  InviteScreen: InviteScreen,
   AppDrop: AppDrop,
   TaskHome: TaskHome,
   CreateTask: CreateTask,
