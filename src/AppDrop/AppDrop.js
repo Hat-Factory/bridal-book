@@ -18,25 +18,25 @@ export default AppDrop = (props) => {
         onPress={() => props.navigation.navigate('SignUp')
         }
         >
-        <Text style={styles.button}>HOME</Text>
+        <Text style={styles.boldButton}>HOME</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => props.navigation.navigate('SignUp')
         }
         >
-        <Text style={styles.button}>PROFILE</Text>
+        <Text style={styles.boldButton}>PROFILE</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => props.navigation.navigate('SignUp')
         }
       >
-        <Text style={styles.button}>WEDDINGS</Text>
+        <Text style={styles.boldButton}>WEDDINGS</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => props.navigation.navigate('SignIn')
         }
       >
-        <Text style={styles.button}>SETTINGS</Text>
+        <Text style={styles.boldButton}>SETTINGS</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => props.navigation.navigate('SignUp')
@@ -62,12 +62,12 @@ export default AppDrop = (props) => {
       >
         <Text style={styles.button}>TASKS</Text>
       </TouchableOpacity>
-      <View>
+      <View style={styles.logOut}>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('SignUp')
           }
         >
-          <Text style={styles.button}>LOG OUT</Text>
+          <Text style={styles.logOutText}>LOG OUT</Text>
         </TouchableOpacity> 
       </View>      
     </View>
@@ -82,10 +82,16 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   button: {
-    color: '#000',
-    fontSize: 18,
+    color: '#292929',
+    fontSize: 14,
     fontWeight: 'normal',
     marginBottom: 20
+  },
+  boldButton: {
+    color: '#000',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 25
   },
   title: {
     color: '#ed7766',
@@ -96,6 +102,21 @@ const styles = StyleSheet.create({
   },
   profilePic: {
     height: 75,
-    width: 75
+    width: 75,
+    marginTop: 30,
+    marginBottom: 30
   },
+  logOut: {
+    marginTop: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 300,
+    height: 50,
+    backgroundColor: '#ed7766',
+  },
+  logOutText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
 })
