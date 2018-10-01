@@ -5,6 +5,13 @@ import {withNavigation} from 'react-navigation'
 import InviteScreen from '../InviteScreen/InviteScreen'
 
 class WeddingsHome extends Component {
+  static navigationOptions = ({navigation}) => ({
+    title: 'Create Party',
+    headerTitleStyle: {
+      color: '#67769a',
+      fontWeight: 'normal'
+    }
+  });
   constructor(props){
     super(props)
     this.state={

@@ -17,6 +17,19 @@ import {
 import Input from '../components/Input'
 
 class InviteFriendsForm extends Component {
+  static navigationOptions = ({navigation}) => ({
+    headerTitle: 'Invite',
+    headerRight: 
+      <TouchableOpacity onPress={() => navigation.navigate('AppDrop')}>
+        <Image source={require('../assets/menu.png')} 
+          style={{marginRight: 15}}/>
+      </TouchableOpacity>
+    ,
+    headerTitleStyle: {
+      color: '#67769a',
+      fontWeight: 'normal'
+    }
+  });
   constructor(props){
     super(props)
   }
@@ -70,12 +83,12 @@ const styles = StyleSheet.create({
     backgroundColor:'#f8f8f8',
   },
   titleContainer: {
-      marginBottom: 10,
-      marginTop: 40,
-      width: 300,
-      paddingLeft: 5,
-      alignItems: 'center',
-      marginBottom: 20
+    marginBottom: 10,
+    marginTop: 40,
+    width: 300,
+    paddingLeft: 5,
+    alignItems: 'center',
+    marginBottom: 20
   },
   title: {
     fontWeight: 'bold',
@@ -139,7 +152,7 @@ const styles = StyleSheet.create({
     width: 325,
     height: 50,
     backgroundColor: '#ed7766',
-    marginTop: 125,
+    marginTop: 100,
     marginBottom: 25
   }
 })

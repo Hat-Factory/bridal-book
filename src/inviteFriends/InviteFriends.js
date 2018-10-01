@@ -36,7 +36,9 @@ import {Text,
           <View style={styles.descContainer}>
             <Text style={styles.desc}>Now that you've made you're profile, let's invite your bridal party</Text>
           </View>
-          <TouchableOpacity style={styles.inviteButton}>
+          <TouchableOpacity style={styles.inviteButton}
+            onPress={() => this.props.navigation.navigate('InviteFriendsForm')}
+          >
             <Text style={styles.buttonText}>GET STARTED</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.laterButton}>
