@@ -15,11 +15,11 @@ import InviteScreen from '../InviteScreen/InviteScreen';
 
 const LoginNavigator =  createStackNavigator({
   // DisplayedTaskForm: DisplayedTaskForm,
-  InviteScreen: InviteScreen,
-  AppDrop: AppDrop,
-  TaskHome: TaskHome,
-  CreateTask: CreateTask,
-  ViewTaskContainer: ViewTaskContainer,
+  // InviteScreen: InviteScreen,
+  // AppDrop: AppDrop,
+  // TaskHome: TaskHome,
+  // CreateTask: CreateTask,
+  // ViewTaskContainer: ViewTaskContainer,
   // Task: Task,
   // InviteFriends: InviteFriends,
   SignIn: {
@@ -34,8 +34,8 @@ const LoginNavigator =  createStackNavigator({
       headerBackTitle: null
     }),
   },
+  CreateAccount: CreateAccount,
   SignInModal: SignInModal,
-  // CreateAccount: CreateAccount,
   SignInDrop: SignInDrop
 
 })

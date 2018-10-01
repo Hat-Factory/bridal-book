@@ -8,8 +8,10 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CreateAccount from '../createAccount/createAccount';
 
+
+
+
 const HomeStack = createStackNavigator({
-  // CreateAccount,
   Home: HomeScreen,
 });
 
@@ -20,8 +22,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'ios-home-outline'
       }
     />
   ),
@@ -32,11 +34,11 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Tasks',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'ios' ? `ios-list${focused ? '' : '-outline'}` : 'ios-list-outline'}
     />
   ),
 };

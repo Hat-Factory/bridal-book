@@ -49,12 +49,13 @@ class CreateAccount extends Component {
     };
 
     let jsonFile = JSON.stringify(file)
-    let name = this.state.userID;
+    let name = 'alan';
     const access = { level: "protected" };
 
     Storage.configure({
-      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
+      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users',
   });
+
     Storage.put(name, jsonFile, access);
     this.props.navigation.navigate('Home');
   }

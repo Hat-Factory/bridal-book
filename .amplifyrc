@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "bridalbook-20180928171708-authRole",
+            "UnauthRoleArn": "arn:aws:iam::835930148152:role/bridalbook-20180928171708-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::835930148152:role/bridalbook-20180928171708-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "bridalbook-20180928171708-deployment",
+            "UnauthRoleName": "bridalbook-20180928171708-unauthRole",
+            "StackName": "bridalbook-20180928171708",
+            "StackId": "arn:aws:cloudformation:us-east-1:835930148152:stack/bridalbook-20180928171708/9f7b22f0-c374-11e8-9bf5-50d5cd12e2d2"
+        }
+    }
+}

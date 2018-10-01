@@ -167,9 +167,9 @@ export function confirmUserSignUp(username, authCode) {
       .then(data => {
         console.log('data from confirmSignUp: ', data)
         dispatch(confirmSignUpSuccess())
-        setTimeout(() => {
-          Alert.alert('Successfully Signed Up!', 'Please Sign')
-        }, 0)
+        // setTimeout(() => {
+        //   Alert.alert('Successfully Signed Up!', 'Please Sign')
+        // }, 0)
       })
       .catch(err => {
         console.log('error signing up: ', err)

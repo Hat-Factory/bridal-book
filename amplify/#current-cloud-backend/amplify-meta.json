@@ -1,0 +1,35 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "bridalbook-20180928171708-authRole",
+			"UnauthRoleArn": "arn:aws:iam::835930148152:role/bridalbook-20180928171708-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::835930148152:role/bridalbook-20180928171708-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "bridalbook-20180928171708-deployment",
+			"UnauthRoleName": "bridalbook-20180928171708-unauthRole",
+			"StackName": "bridalbook-20180928171708",
+			"StackId": "arn:aws:cloudformation:us-east-1:835930148152:stack/bridalbook-20180928171708/9f7b22f0-c374-11e8-9bf5-50d5cd12e2d2"
+		}
+	},
+	"auth": {
+		"cognito8951b2d8": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/bridalbook-20180928171708-deployment/amplify-cfn-templates/auth/cognito8951b2d8-cloudformation-template.yml",
+				"logicalId": "authcognito8951b2d8"
+			},
+			"lastPushTimeStamp": "2018-09-28T23:29:03.736Z",
+			"output": {
+				"AppClientSecret": "1jl1u2ofhdld338u3vtdtl6co1r73i5q61k3lnqui2fs4o8n2qon",
+				"UserPoolId": "us-east-1_vIkVc6ukH",
+				"AppClientIDWeb": "2pjfbk4d6htdq7p3qde9pacrbi",
+				"AppClientID": "1r6qiq12vb4202u8j1ej7m5o4q",
+				"IdentityPoolId": "us-east-1:25b4cdcb-773c-4916-a8a6-1939b9ece621",
+				"IdentityPoolName": "cognito8951b2d8_identitypool_8951b2d8",
+				"UserPoolName": "cognito8951b2d8_userpool_8951b2d8"
+			},
+			"lastPushDirHash": "hh/PWjCB35wa/VjIiQObtD3489U="
+		}
+	}
+}

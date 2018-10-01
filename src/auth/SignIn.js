@@ -61,19 +61,50 @@ class SignIn extends Component {
     const { authCode } = this.state
     await this.props.dispatchConfirmUserLogin(authCode)
 
+    // let session =  await Auth.currentSession();
+
+    // let loginID= await session.getIdToken()
+
     let userID =   this.props.auth.user.pool.clientId 
 
-  //   await Storage.configure({
-  //     bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
-  // });
-  //   let info = await Storage.get(`${userID}`, { level: 'protected' })
-  //   await console.log('***',info)
 
-  //   const data = await fetch(info)
-  //   // const response = await data.json()
-  //   let promiseClean = await Promise.resolve(data)
-  //   let clean = await xmlToJson(promiseClean)
-  //   console.log(clean)
+    // let params = {
+    //   IdentityPoolId: 'us-east-1:9494a962-e902-4371-b1b3-564d4c36d91b',
+    //   AccountId: 835930148152 ,
+    //   Logins: {
+    //     'cognito-idp.us-east-1.amazonaws.com/us-east-1_9pZdh4UYj': loginID
+    //   }
+    // };
+
+    //  let user = cognitoidentity.getId(params, function(err, data) {
+    //   if (err) console.log(err, err.stack); // an error occurred
+    //   else     console.log(data);           // successful response
+    // });
+
+    // let identityParams = {
+    //   IdentityId: user.IdentityId, 
+    //   Logins: {
+    //     'cognito-idp.us-east-1.amazonaws.com/us-east-1_9pZdh4UYj': loginID
+    //   }
+    // };
+    // let userCreds = cognitoidentity.getCredentialsForIdentity(identityParams, function(err, data) {
+    //   if (err) console.log(err, err.stack); // an error occurred
+    //   else     console.log(data);           // successful response
+    // });
+
+    await Storage.configure({
+      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
+  });
+
+    let info = await Storage.get(`${userID}`, { level: 'protected' })
+    await console.log('***',info)
+
+    const data = await fetch(info)
+    // const response = await data.json()
+    let promiseClean = await Promise.resolve(data)
+    console.log(promiseClean)
+    // let clean = await xmlToJson(promiseClean)
+    // console.log(clean)
   }
   
   render() {
