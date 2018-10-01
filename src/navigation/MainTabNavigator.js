@@ -14,6 +14,13 @@ import InviteScreen from '../InviteScreen/InviteScreen';
 // import InviteFriendsForm from '../inviteFriends/InviteFriends';
 // import AppDropStack from './appDropNav';
 
+import TaskHome from '../taskHome/TaskHome';
+import CreateTask from '../createTask/createTask';
+import ViewTaskContainer from '../viewTaskContainer/ViewTaskContainer';
+import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
+// import AppDrop from '../AppDrop/AppDrop';
+// import InviteScreen from '../InviteScreen/InviteScreen';
+
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   AppDrop: AppDrop, 
@@ -33,11 +40,15 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const TasksStack = createStackNavigator({
+  TaskHome: TaskHome,
+  DisplayedTaskForm: DisplayedTaskForm,
+  CreateTask: CreateTask,
+  ViewTaskContainer: ViewTaskContainer,
+  // Task: Task,
 });
 
-LinksStack.navigationOptions = {
+TasksStack.navigationOptions = {
   tabBarLabel: 'Tasks',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -68,6 +79,6 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  TasksStack,
   SettingsStack
 });
