@@ -12,7 +12,7 @@ import {Text,
     static navigationOptions = ({navigation}) => ({
       title: 'Welcome',
       headerRight: 
-        <TouchableOpacity onPress={() => navigation.navigate('SignInDrop')}>
+        <TouchableOpacity onPress={() => navigation.navigate('AppDrop')}>
           <Image source={require('../assets/menu.png')} 
             style={{marginRight: 15}}/>
         </TouchableOpacity>

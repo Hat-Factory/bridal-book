@@ -11,14 +11,12 @@ import CreateAccount from '../createAccount/createAccount';
 import AppDrop from '../AppDrop/AppDrop';
 import WeddingsHome from '../WeddingsHome/WeddingsHome';
 import InviteScreen from '../InviteScreen/InviteScreen';
+// import InviteFriendsForm from '../inviteFriends/InviteFriends';
 // import AppDropStack from './appDropNav';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   AppDrop: AppDrop, 
-  // AppDropStack: AppDropStack,
-  WeddingsHome: WeddingsHome,
-  InviteScreen: InviteScreen,
 });
 
 HomeStack.navigationOptions = {

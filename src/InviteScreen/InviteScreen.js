@@ -8,6 +8,8 @@ import {Text,
   Modal,
   Image} from 'react-native';
 
+ import {withNavigation} from 'react-navigation';
+
   class InviteScreen extends Component {
     static navigationOptions = ({navigation}) => ({
       title: 'Create Party',
@@ -29,6 +31,7 @@ import {Text,
           </View>
           <TouchableHighlight
             style={styles.button}
+            onPress={() => this.props.navigation.navigate('InviteFriends')}
           >
             <Text style={styles.buttonText}>I'M THE BRIDE</Text>
           </TouchableHighlight>
@@ -42,7 +45,7 @@ import {Text,
     }
   }
 
-  export default InviteScreen;
+  export default withNavigation(InviteScreen);
 
   const styles = StyleSheet.create({
     container: {
