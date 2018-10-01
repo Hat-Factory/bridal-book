@@ -17,11 +17,22 @@ import { Auth } from 'aws-amplify';
 import { logOut } from '../actions';
 import { colors } from '../theme';
 
+import BridalLogo from '../BridalLogo';
 
 class Home extends Component {
-  static navigationOptions = {
-    title: 'Home',
-  };
+  static navigationOptions = ({navigation}) => ({
+    headerTitle: <BridalLogo />,
+    headerRight: 
+      <TouchableOpacity onPress={() => navigation.navigate('AppDrop')}>
+        <Image source={require('../assets/menu.png')} 
+          style={{marginRight: 15}}/>
+      </TouchableOpacity>
+    ,
+    headerTitleStyle: {
+      color: '#67769a',
+      fontWeight: 'normal'
+    }
+  });
   constructor(props){
     super(props)
 

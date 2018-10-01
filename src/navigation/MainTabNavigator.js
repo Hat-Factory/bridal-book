@@ -8,11 +8,12 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CreateAccount from '../createAccount/createAccount';
 
-
+import AppDrop from '../AppDrop/AppDrop';
 
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  AppDrop: AppDrop
 });
 
 HomeStack.navigationOptions = {
