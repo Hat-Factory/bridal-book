@@ -9,31 +9,32 @@ import {
   Image
 } from 'react-native'
 
+import {withNavigation} from 'react-navigation';
 
-export default AppDrop = (props) => {
+const AppDrop = (props) => {
   return (
     <View style={styles.container}>
                   <Image style={styles.profilePic} source={require('../assets/user.png')}/>
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
+        onPress={() => props.navigation.navigate('Home')
         }
         >
         <Text style={styles.boldButton}>HOME</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
+        onPress={() => props.navigation.navigate('Home')
         }
         >
         <Text style={styles.boldButton}>PROFILE</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
+        onPress={() => props.navigation.navigate('WeddingsHome')
         }
       >
         <Text style={styles.boldButton}>WEDDINGS</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignIn')
+        onPress={() => props.navigation.navigate('WeddingsHome')
         }
       >
         <Text style={styles.boldButton}>SETTINGS</Text>
@@ -74,6 +75,8 @@ export default AppDrop = (props) => {
     
   )
 }
+
+export default withNavigation(AppDrop);
 
 const styles = StyleSheet.create({
   container: {

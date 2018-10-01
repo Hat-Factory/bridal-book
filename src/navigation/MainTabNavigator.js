@@ -9,11 +9,16 @@ import SettingsScreen from '../screens/SettingsScreen';
 import CreateAccount from '../createAccount/createAccount';
 
 import AppDrop from '../AppDrop/AppDrop';
-
+import WeddingsHome from '../WeddingsHome/WeddingsHome';
+import InviteScreen from '../InviteScreen/InviteScreen';
+// import AppDropStack from './appDropNav';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
-  AppDrop: AppDrop
+  AppDrop: AppDrop, 
+  // AppDropStack: AppDropStack,
+  WeddingsHome: WeddingsHome,
+  InviteScreen: InviteScreen,
 });
 
 HomeStack.navigationOptions = {
@@ -58,8 +63,13 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+// const AppDropStack = createStackNavigator({
+//   WeddingsHome: WeddingsHome,
+//   InviteScreen: InviteScreen,
+// })
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
+  SettingsStack
 });
