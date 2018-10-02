@@ -19,7 +19,10 @@ import xmlToJson from '../xmlCleaner';
 
 import { authenticate, confirmUserLogin } from '../actions';
 
-let sendbird = require('sendbird')
+// let sendbird = require('sendbird')
+import SendBird from 'sendbird';
+const sb = new SendBird({appId: 'A7A2672C-AD11-11E4-8DAA-0A18B21C2D82'})
+
 
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -45,9 +48,20 @@ class SignIn extends Component {
     this.state = {
       username: '',
       password: '',
-      accessCode: ''
+      accessCode: '',
+      userId: '',
+      error: '',
     }
   }
+
+  userIdChanged = (userId) => {
+    this.setState({ userId })
+  }
+
+  nicknameChanged = (nickname) => {
+    this.setState({ nickname })
+  }
+
   onChangeText = (key, value) => {
     this.setState({
       [key]: value
@@ -57,73 +71,50 @@ class SignIn extends Component {
   signIn() {
     const { username, password } = this.state
     this.props.dispatchAuthenticate(username, password)
-    this.sendbirdInit()
+    // this.sendbirdInit()
   }
 
   sendbirdInit = () => {
-    sendbird.init({
-      app_id: 'C59A1464-A748-4A9B-808F-794740FD36F3',
-      guest_id: this.state.username,
-      user_name: this.state.username,
-      image_url: "",
-      access_token: "",
-      successFunc: (data) => {
-        console.log('success');
-      },
-      errorFunc: (status, error) => {
-        this.setState({username: ''});
-      }
-    });
+    const { userId, username} = this.state;
+    const sb = new SendBird({ 'appId': '9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23' });
+    sb.connect(userId, (user, error) => {
+        if (error) {
+            this.setState({ error });
+        } else {
+            sb.updateCurrentUserInfo(username, null, (user, error) => {
+                if (error) {
+                    this.setState({ error });
+                } else {
+                    this.setState({
+                        userId: '',
+                        username: '',
+                        error: ''
+                    }, () => {
+                        console.log('hey');
+                    });
+                }
+            })
+        }
+    })
   }
 
   async confirm() {
     const { authCode } = this.state
     await this.props.dispatchConfirmUserLogin(authCode)
+    this.sendbirdInit()
+  //   await Storage.configure({
+  //     bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
+  // });
 
-    // let session =  await Auth.currentSession();
+  //   let info = await Storage.get(`${userID}`, { level: 'protected' })
+  //   await console.log('***',info)
 
-    // let loginID= await session.getIdToken()
-
-    let userID =   this.props.auth.user.pool.clientId 
-
-
-    // let params = {
-    //   IdentityPoolId: 'us-east-1:9494a962-e902-4371-b1b3-564d4c36d91b',
-    //   AccountId: 835930148152 ,
-    //   Logins: {
-    //     'cognito-idp.us-east-1.amazonaws.com/us-east-1_9pZdh4UYj': loginID
-    //   }
-    // };
-
-    //  let user = cognitoidentity.getId(params, function(err, data) {
-    //   if (err) console.log(err, err.stack); // an error occurred
-    //   else     console.log(data);           // successful response
-    // });
-
-    // let identityParams = {
-    //   IdentityId: user.IdentityId, 
-    //   Logins: {
-    //     'cognito-idp.us-east-1.amazonaws.com/us-east-1_9pZdh4UYj': loginID
-    //   }
-    // };
-    // let userCreds = cognitoidentity.getCredentialsForIdentity(identityParams, function(err, data) {
-    //   if (err) console.log(err, err.stack); // an error occurred
-    //   else     console.log(data);           // successful response
-    // });
-
-    await Storage.configure({
-      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
-  });
-
-    let info = await Storage.get(`${userID}`, { level: 'protected' })
-    await console.log('***',info)
-
-    const data = await fetch(info)
-    // const response = await data.json()
-    let promiseClean = await Promise.resolve(data)
-    console.log(promiseClean)
-    // let clean = await xmlToJson(promiseClean)
-    // console.log(clean)
+  //   const data = await fetch(info)
+  //   // const response = await data.json()
+  //   let promiseClean = await Promise.resolve(data)
+  //   console.log(promiseClean)
+  //   // let clean = await xmlToJson(promiseClean)
+  //   // console.log(clean)
   }
   
   render() {
