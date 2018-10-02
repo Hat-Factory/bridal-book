@@ -22,9 +22,11 @@ import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 // import InviteScreen from '../InviteScreen/InviteScreen';
 
 import Channels from '../Channels/Channels';
+import Menu from '../Menu/Menu';
 
 const HomeStack = createStackNavigator({
   // Channels: Channels,
+  Menu: Menu,
   Home: HomeScreen,
   AppDrop: AppDrop, 
 });
