@@ -17,9 +17,9 @@ export const getCurrentUserInfo = () => {
   }
 }
 
-export const updateProfile = (nickname) => {
+export const updateProfile = (username) => {
   return (dispatch) => {
-      sbUpdateProfile(nickname)
+      sbUpdateProfile(username)
       .then((user) => updateSuccess(dispatch, user))
       .catch((error) => updateFail(dispatch, error))
   }

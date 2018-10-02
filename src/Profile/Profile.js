@@ -38,14 +38,14 @@ class Profile extends Component {
 
     componentDidMount() {
         this.props.navigation.setParams({ handleSave: this._onSaveButtonPress })
-        this.props.initProfile();
-        this.props.getCurrentUserInfo();
+        this.props.dispatchInitProfile();
+        this.props.dispatchGetCurrentUserInfo();
     }
 
     componentWillReceiveProps(props) {
         // const { userInfo, isSaved } = props;
-        let userInfo = this.state.profile.userInfo;
-        let isSaved = this.state.profile.isSaved;
+        let userInfo = this.props.profile.userInfo;
+        let isSaved = this.props.profile.isSaved;
         if (userInfo) {
             const { profileUrl, username } = userInfo;
             this.setState({ profileUrl, username });
@@ -60,7 +60,7 @@ class Profile extends Component {
     }
 
     _onSaveButtonPress = () => {
-        this.props.updateProfile(this.state.username);
+        this.props.dispatchUpdateProfile(this.state.username);
     }
 
     render() {
@@ -113,7 +113,10 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(
-    mapStateToProps, 
-    { initProfile, getCurrentUserInfo, updateProfile }
-)(Profile);
+const mapDispatchToProps = dispatch => ({
+  dispatchInitProfile: () => dispatch(initProfile()),
+  dispatchGetCurrentUserInfo: () => dispatch(getCurrentUserInfo()),
+  dispatchUpdateProfile: (username) => dispatch(updateProfile(username))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

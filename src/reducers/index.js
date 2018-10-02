@@ -4,11 +4,13 @@ import imageReducer from './image'
 import taskReducer from './tasks';
 import viewTaskReducer from './viewTask'
 import login from './loginReducer';
+import profile from './profileReducers'
 
 
 export default combineReducers({
   auth,
   login,
+  profile,
   image: imageReducer,
   tasks: taskReducer,
   viewedTask: viewTaskReducer
