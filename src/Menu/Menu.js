@@ -35,11 +35,12 @@ class Menu extends Component {
     }
 
     _onProfileButtonPress = () => {
-        // TODO: Profile screen
+        this.props.navigation.navigate('Profile')
+        console.log('profile working')
     }
 
     _onOpenChannelPress = () => {
-        // TODO: OpenChannel screen
+        this.props.navigation.navigate('OpenChannel');
     }
 
     _onGroupChannelPress = () => {

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { initProfile, getCurrentUserInfo, updateProfile } from '../actions'
+import { initProfile, getCurrentUserInfo, updateProfile } from '../sendbirdActions'
 import { 
     Button, 
     Avatar, 
     FormLabel, 
     FormInput, 
     FormValidationMessage
-} from '../components';
+} from 'react-native-elements';
 
 class Profile extends Component {
     static navigationOptions = ({ navigation }) => {

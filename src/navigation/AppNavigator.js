@@ -12,7 +12,7 @@ import InviteFriendsForm from '../InviteFriendsForm/InviteFriendsForm';
 export default createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  // InviteFriendsForm: InviteFriendsForm,
+// InviteFriendsForm: InviteFriendsForm,
   Main: MainTabNavigator,
   AppDropStack: AppDropStack,
 });

@@ -23,10 +23,14 @@ import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 
 import Channels from '../Channels/Channels';
 import Menu from '../Menu/Menu';
+import Profile from '../Profile/Profile'
+import OpenChannel from '../OpenChannel/OpenChannel'
 
 const HomeStack = createStackNavigator({
   // Channels: Channels,
   Menu: Menu,
+  Profile: Profile,
+  OpenChannel: OpenChannel,
   Home: HomeScreen,
   AppDrop: AppDrop, 
 });
