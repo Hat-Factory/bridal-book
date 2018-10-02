@@ -24,7 +24,7 @@ import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 import Channels from '../Channels/Channels';
 
 const HomeStack = createStackNavigator({
-  Channels: Channels,
+  // Channels: Channels,
   Home: HomeScreen,
   AppDrop: AppDrop, 
 });

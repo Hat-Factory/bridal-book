@@ -18,7 +18,7 @@ import { Storage } from 'aws-amplify';
 import xmlToJson from '../xmlCleaner';
 
 import { authenticate, confirmUserLogin } from '../actions';
-
+import { sendbirdLogin } from '../sendbirdActions';
 // let sendbird = require('sendbird')
 import SendBird from 'sendbird';
 const sb = new SendBird({appId: 'A7A2672C-AD11-11E4-8DAA-0A18B21C2D82'})
@@ -49,7 +49,7 @@ class SignIn extends Component {
       username: '',
       password: '',
       accessCode: '',
-      userId: '',
+      userId: 15,
       error: '',
     }
   }
@@ -100,7 +100,12 @@ class SignIn extends Component {
 
   async confirm() {
     const { authCode } = this.state
+    let sendbirdInfo= {
+      userId: this.state.userId,
+      username: this.state.username
+    }
     await this.props.dispatchConfirmUserLogin(authCode)
+    this.props.dispatchsendbirdLogin(sendbirdInfo.userId, sendbirdInfo.username)
     this.sendbirdInit()
   //   await Storage.configure({
   //     bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
@@ -190,12 +195,14 @@ class SignIn extends Component {
 
 const mapDispatchToProps = {
   dispatchConfirmUserLogin: authCode => confirmUserLogin(authCode),
-  dispatchAuthenticate: (username, password) => authenticate(username, password)
+  dispatchAuthenticate: (username, password) => authenticate(username, password),
+  dispatchsendbirdLogin: (userId, username) => sendbirdLogin(userId, username)
 }
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  new: state.new
+  new: state.new,
+  login: state.login
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
