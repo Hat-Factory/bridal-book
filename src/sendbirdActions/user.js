@@ -1,3 +1,4 @@
+
 import SendBird from 'sendbird';
 
 const APP_ID = '9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23';
@@ -20,3 +21,16 @@ export const sbConnect = (userId, nickname) => {
         })
     })
 };
+
+export const sbDisconnect = () => {
+    return new Promise((resolve, reject) => {
+        const sb = SendBird.getInstance();
+        if (sb) {
+            sb.disconnect(() => {
+                resolve(null);
+            });
+        } else {
+            resolve(null);
+        }
+    })
+}

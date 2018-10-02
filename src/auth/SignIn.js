@@ -11,6 +11,7 @@ import {
   Image,
   Modal
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 import { Auth } from 'aws-amplify';
 import { connect } from 'react-redux';
@@ -51,6 +52,23 @@ class SignIn extends Component {
       accessCode: '',
       userId: 15,
       error: '',
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    let error = this.props.login.error
+    let user = this.props.login.user
+    // const { user, error } = props;
+    if (user) {
+        const resetAction = NavigationActions.reset({
+            index: 0,
+            actions: [
+                NavigationActions.navigate({ routeName: 'Menu' })
+            ]
+        })
+        this.setState({ userId: '', nickname: '' }, () => {
+            this.props.navigation.dispatch(resetAction);
+        })
     }
   }
 
