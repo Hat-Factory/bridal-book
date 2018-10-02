@@ -19,6 +19,8 @@ import xmlToJson from '../xmlCleaner';
 
 import { authenticate, confirmUserLogin } from '../actions';
 
+let sendbird = require('sendbird')
+
 import Input from '../components/Input';
 import Button from '../components/Button';
 
@@ -55,6 +57,23 @@ class SignIn extends Component {
   signIn() {
     const { username, password } = this.state
     this.props.dispatchAuthenticate(username, password)
+    this.sendbirdInit()
+  }
+
+  sendbirdInit = () => {
+    sendbird.init({
+      app_id: 'C59A1464-A748-4A9B-808F-794740FD36F3',
+      guest_id: this.state.username,
+      user_name: this.state.username,
+      image_url: "",
+      access_token: "",
+      successFunc: (data) => {
+        console.log('success');
+      },
+      errorFunc: (status, error) => {
+        this.setState({username: ''});
+      }
+    });
   }
 
   async confirm() {
