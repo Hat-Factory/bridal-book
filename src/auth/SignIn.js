@@ -22,7 +22,7 @@ import { authenticate, confirmUserLogin } from '../actions';
 import { sendbirdLogin } from '../sendbirdActions';
 // let sendbird = require('sendbird')
 import SendBird from 'sendbird';
-const sb = new SendBird({appId: 'A7A2672C-AD11-11E4-8DAA-0A18B21C2D82'})
+const sb = new SendBird({appId: '9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23'})
 
 
 import Input from '../components/Input';

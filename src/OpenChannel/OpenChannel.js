@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ListView, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
-import { getOpenChannelList } from '../actions'
+import { getOpenChannelList } from '../sendbirdActions'
 import { Button, ListItem, Avatar } from 'react-native-elements';
 import { sbCreateOpenChannelListQuery } from '../sendbirdActions';
 
@@ -27,7 +27,7 @@ class OpenChannel extends Component {
     componentWillReceiveProps(props) {
         // const { list } = props;
         let list = this.props.openChannel.list;
-    
+        console.log(list)
         if (list !== this.props.list) {
             if (list.length === 0) {
                 this.setState({ list: [], openChannelList: ds.cloneWithRows([]) });    
@@ -46,10 +46,10 @@ class OpenChannel extends Component {
         if (init) {
             const openChannelListQuery = sbCreateOpenChannelListQuery();
             this.setState({ openChannelListQuery }, () => {
-                this.props.getOpenChannelList(this.state.openChannelListQuery);        
+                this.props.dispatchChannelList(this.state.openChannelListQuery);        
             });
         } else {
-            this.props.getOpenChannelList(this.state.openChannelListQuery);
+            this.props.dispatchChannelList(this.state.openChannelListQuery);
         }
     }
     
@@ -115,4 +115,8 @@ const mapStateToProps = state => ({
  openChannel: state.openChannel
 })
 
-export default connect(mapStateToProps, { getOpenChannelList })(OpenChannel);
+const mapDispatchToProps = dispatch => ({
+    dispatchChannelList: (channelList) => dispatch(getOpenChannelList(channelList))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(OpenChannel);
