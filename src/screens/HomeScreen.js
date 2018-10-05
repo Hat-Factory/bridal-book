@@ -19,6 +19,7 @@ import { colors } from '../theme';
 
 import BridalLogo from '../BridalLogo';
 import HomeCarousel from '../HomeCarousel/HomeCarousel';
+import UpdateContainer from '../UpdateContainer/UpdateContainer';
 
 class Home extends Component {
   static navigationOptions = ({navigation}) => ({
@@ -66,9 +67,8 @@ class Home extends Component {
     return (
       <View style={styles.container}>
           <HomeCarousel />
+          <UpdateContainer />
         <View style={styles.homeContainer}>
-          <Text style={styles.welcome}>Welcome</Text>
-          <Text onPress={this.logout.bind(this)} style={styles.welcome}>Logout</Text>
         </View>
       </View>
     )
