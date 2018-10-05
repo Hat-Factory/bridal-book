@@ -2,79 +2,79 @@
 # yarn lockfile v1
 
 
-"@aws-amplify/analytics@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/analytics/-/analytics-1.2.1.tgz#3fba4581b6dac4e0f6b742b7ae39960e247694b8"
+"@aws-amplify/analytics@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/analytics/-/analytics-1.2.3.tgz#6ac7fc85c35622ab489d61c1518d3828f5b155da"
   dependencies:
-    "@aws-amplify/cache" "^1.0.13"
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/cache" "^1.0.15"
+    "@aws-amplify/core" "^1.0.15"
     aws-sdk "^2.312.0"
     uuid "^3.2.1"
 
-"@aws-amplify/api@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/api/-/api-1.0.15.tgz#5656c10886c2bd8720da8a9a7964a2f62566be57"
+"@aws-amplify/api@^1.0.17":
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/api/-/api-1.0.17.tgz#c5536f804ba0ede99631c75717a819caeaff105b"
   dependencies:
-    "@aws-amplify/auth" "^1.2.4"
-    "@aws-amplify/cache" "^1.0.13"
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/auth" "^1.2.6"
+    "@aws-amplify/cache" "^1.0.15"
+    "@aws-amplify/core" "^1.0.15"
     "@types/zen-observable" "^0.5.3"
     axios "^0.17.0"
     graphql "0.13.0"
     uuid "^3.2.1"
     zen-observable "^0.8.6"
 
-"@aws-amplify/auth@^1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/auth/-/auth-1.2.4.tgz#7004b060b79e85c015d930da06e0013dbece423d"
+"@aws-amplify/auth@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/auth/-/auth-1.2.6.tgz#a9b33b284df36de261b662dbab42ce518fa02ca8"
   dependencies:
-    "@aws-amplify/cache" "^1.0.13"
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/cache" "^1.0.15"
+    "@aws-amplify/core" "^1.0.15"
     amazon-cognito-auth-js "^1.1.9"
-    amazon-cognito-identity-js "^2.0.30"
+    amazon-cognito-identity-js "^3.0.2"
 
-"@aws-amplify/cache@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/cache/-/cache-1.0.13.tgz#69e194998bb6c4a5b69af74924abfd6314482a21"
+"@aws-amplify/cache@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/cache/-/cache-1.0.15.tgz#9b51039cf6f3951403ab667577af13a926e5f196"
   dependencies:
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/core" "^1.0.15"
 
-"@aws-amplify/core@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/core/-/core-1.0.13.tgz#6303e65613e5b43849a9be516f475289a14f26ad"
+"@aws-amplify/core@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/core/-/core-1.0.15.tgz#cfd8658e2df92d49e3a0209e4bfab323863e22d9"
   dependencies:
     aws-sdk "^2.312.0"
     url "^0.11.0"
 
-"@aws-amplify/interactions@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/interactions/-/interactions-1.0.13.tgz#0f76ad42d256f6bfd0520221c42bc5a85e4168dc"
+"@aws-amplify/interactions@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/interactions/-/interactions-1.0.15.tgz#7be2cb1c348d93de93edafd08e53b528846683ba"
   dependencies:
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/core" "^1.0.15"
     aws-sdk "^2.312.0"
 
-"@aws-amplify/pubsub@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/pubsub/-/pubsub-1.0.13.tgz#ea7e6dc2a5e4aab5f271982e1ebf5bf8c6c969bd"
+"@aws-amplify/pubsub@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/pubsub/-/pubsub-1.0.15.tgz#4deafc010aea43507ecb105249fdeb6f9977c9b6"
   dependencies:
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/core" "^1.0.15"
     "@types/zen-observable" "^0.5.3"
     uuid "^3.2.1"
     zen-observable "^0.8.6"
 
-"@aws-amplify/storage@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/storage/-/storage-1.0.13.tgz#8b184779a81c011d4cfad17a1dca39bba655d503"
+"@aws-amplify/storage@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/storage/-/storage-1.0.15.tgz#b8ded23cb51353576b9dd3914bcd99e5d277d7a4"
   dependencies:
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/core" "^1.0.15"
     aws-sdk "^2.312.0"
 
-"@aws-amplify/xr@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@aws-amplify/xr/-/xr-0.1.3.tgz#31ed2b94e0ab02166ddb92814cb969d1e682ab62"
+"@aws-amplify/xr@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/xr/-/xr-0.1.5.tgz#b449721394f3ca3005cda30073db7817e4f66d7d"
   dependencies:
-    "@aws-amplify/api" "^1.0.15"
-    "@aws-amplify/core" "^1.0.13"
+    "@aws-amplify/api" "^1.0.17"
+    "@aws-amplify/core" "^1.0.15"
     aws-sdk "2.198.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.0.0-beta.35":
@@ -569,6 +569,10 @@ acorn@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.0.1.tgz#66e6147e1027704479dc6d9b20d884c572db3cc1"
 
+agentkeepalive@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/agentkeepalive/-/agentkeepalive-2.2.0.tgz#c5d1bd4b129008f1163f236f86e5faea2026e2ef"
+
 ajv@^5.3.0:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
@@ -584,12 +588,12 @@ amazon-cognito-auth-js@^1.1.9:
   dependencies:
     js-cookie "^2.1.4"
 
-amazon-cognito-identity-js@^2.0.30:
-  version "2.0.30"
-  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-2.0.30.tgz#120d16ec15bf980e64d05911bb755662fc1a9af1"
+amazon-cognito-identity-js@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-3.0.2.tgz#7acbe3dda7e3ac06e0dc3289611a923458a7a8ed"
   dependencies:
     buffer "4.9.1"
-    crypto-browserify "1.0.9"
+    crypto-js "^3.1.9-1"
     js-cookie "^2.1.4"
 
 ansi-colors@^1.0.1:
@@ -793,28 +797,28 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
 
-aws-amplify-react-native@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/aws-amplify-react-native/-/aws-amplify-react-native-2.0.4.tgz#d3dd164d3cffc723398adcaabd7a53d29151e571"
+aws-amplify-react-native@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/aws-amplify-react-native/-/aws-amplify-react-native-2.0.6.tgz#aa90bf921c4dd8589dda51e6e3bfa85c40eb81b6"
   dependencies:
     axios "^0.17.1"
     babel-preset-es2015 "^6.24.1"
     react-native-elements "^0.19.1"
     react-native-vector-icons "^5.0.0"
 
-aws-amplify@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-1.1.4.tgz#de7d1309d43265a43c6800644228809c60a13c9e"
+aws-amplify@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/aws-amplify/-/aws-amplify-1.1.6.tgz#81f0c5544a867bcca32b49078cc40e429281bf49"
   dependencies:
-    "@aws-amplify/analytics" "^1.2.1"
-    "@aws-amplify/api" "^1.0.15"
-    "@aws-amplify/auth" "^1.2.4"
-    "@aws-amplify/cache" "^1.0.13"
-    "@aws-amplify/core" "^1.0.13"
-    "@aws-amplify/interactions" "^1.0.13"
-    "@aws-amplify/pubsub" "^1.0.13"
-    "@aws-amplify/storage" "^1.0.13"
-    "@aws-amplify/xr" "^0.1.3"
+    "@aws-amplify/analytics" "^1.2.3"
+    "@aws-amplify/api" "^1.0.17"
+    "@aws-amplify/auth" "^1.2.6"
+    "@aws-amplify/cache" "^1.0.15"
+    "@aws-amplify/core" "^1.0.15"
+    "@aws-amplify/interactions" "^1.0.15"
+    "@aws-amplify/pubsub" "^1.0.15"
+    "@aws-amplify/storage" "^1.0.15"
+    "@aws-amplify/xr" "^0.1.5"
 
 aws-sdk@2.198.0:
   version "2.198.0"
@@ -1621,6 +1625,10 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
+base-64@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/base-64/-/base-64-0.1.0.tgz#780a99c84e7d600260361511c4877613bf24f6bb"
+
 base64-js@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-0.0.8.tgz#1101e9544f4a76b1bc3b26d452ca96d7a35e7978"
@@ -1738,7 +1746,7 @@ buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
 
-buffer@4.9.1:
+buffer@4.9.1, buffer@^4.5.1:
   version "4.9.1"
   resolved "http://registry.npmjs.org/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
   dependencies:
@@ -1911,7 +1919,7 @@ combined-stream@1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-combined-stream@~1.0.6:
+combined-stream@^1.0.5, combined-stream@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
   dependencies:
@@ -2003,7 +2011,7 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-create-react-class@^15.6.3:
+create-react-class@^15.6.0, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -2026,9 +2034,13 @@ cross-spawn@^5.0.1, cross-spawn@^5.1.0:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-crypto-browserify@1.0.9:
-  version "1.0.9"
-  resolved "http://registry.npmjs.org/crypto-browserify/-/crypto-browserify-1.0.9.tgz#cc5449685dfb85eb11c9828acc7cb87ab5bbfcc0"
+crypto-js@3.1.9-1, crypto-js@^3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+
+crypto-js@^3.1.6:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.8.tgz#715f070bf6014f2ae992a98b3929258b713f08d5"
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.4"
@@ -2091,6 +2103,10 @@ deep-extend@^0.6.0:
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
+
+deepmerge@^1.3.1:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
 
 default-require-extensions@^1.0.0:
   version "1.0.0"
@@ -2839,6 +2855,14 @@ forever-agent@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
 
+form-data@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.1.2.tgz#89c3534008b97eada4cbb157d58f6f5df025eae4"
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.5"
+    mime-types "^2.1.12"
+
 form-data@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.2.tgz#4970498be604c20c005d4f5c23aecd21d6b49099"
@@ -2939,6 +2963,17 @@ glob-parent@^2.0.0:
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-2.0.0.tgz#81383d72db054fcccf5336daa902f182f6edbb28"
   dependencies:
     is-glob "^2.0.0"
+
+glob@7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.6.tgz#211bafaf49e525b8cd93260d14ab136152b3f57a"
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.2"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
 
 glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2:
   version "7.1.3"
@@ -3987,6 +4022,10 @@ lodash.mapvalues@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.mapvalues/-/lodash.mapvalues-4.6.0.tgz#1bafa5005de9dd6f4f26668c30ca37230cc9689c"
 
+lodash.merge@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
+
 lodash.omit@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
@@ -4022,6 +4061,10 @@ lodash.times@^4.3.2:
 lodash.zipobject@^4.1.3:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/lodash.zipobject/-/lodash.zipobject-4.1.3.tgz#b399f5aba8ff62a746f6979bf20b214f964dbef8"
+
+lodash@4.17.4:
+  version "4.17.4"
+  resolved "http://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@^3.5.0:
   version "3.10.1"
@@ -4309,7 +4352,7 @@ min-document@^2.19.0:
   dependencies:
     dom-walk "^0.1.0"
 
-minimatch@^3.0.3, minimatch@^3.0.4:
+minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
@@ -4352,6 +4395,12 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   resolved "http://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mock-async-storage@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/mock-async-storage/-/mock-async-storage-1.0.3.tgz#e097e255af27d0276deba3d7a5022d6f47440b96"
+  dependencies:
+    deepmerge "^1.3.1"
 
 morgan@^1.9.0:
   version "1.9.1"
@@ -4879,6 +4928,13 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@15.5.10:
+  version "15.5.10"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+
 prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
@@ -4920,6 +4976,16 @@ query-string@^6.1.0:
 querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
+
+querystringify@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
+
+raf@^3.1.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
+  dependencies:
+    performance-now "^2.1.0"
 
 randomatic@^3.0.0:
   version "3.1.0"
@@ -4965,9 +5031,33 @@ react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
+react-native-aws3@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-aws3/-/react-native-aws3-0.0.8.tgz#9a18789ae0cedfb40d29b1f69799a8af4f9927e8"
+  dependencies:
+    buffer "^4.5.1"
+    crypto-js "^3.1.6"
+
 react-native-branch@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
+
+react-native-cached-image@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-cached-image/-/react-native-cached-image-1.4.3.tgz#0942e2cd078284a1f0438de8dfe17f2b36a89752"
+  dependencies:
+    crypto-js "3.1.9-1"
+    lodash "4.17.4"
+    prop-types "15.5.10"
+    react-native-clcasher "1.0.0"
+    react-native-fetch-blob "0.10.8"
+    url-parse "1.1.9"
+
+react-native-clcasher@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-clcasher/-/react-native-clcasher-1.0.0.tgz#1f77fb1a4abc6a0337ef19c991e04f19af6d2789"
+  dependencies:
+    mock-async-storage "^1.0.3"
 
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
@@ -4994,6 +5084,13 @@ react-native-elements@^0.19.1:
     opencollective "^1.0.3"
     prop-types "^15.5.8"
 
+react-native-fetch-blob@0.10.8:
+  version "0.10.8"
+  resolved "https://registry.yarnpkg.com/react-native-fetch-blob/-/react-native-fetch-blob-0.10.8.tgz#4fc256abae0cb5f10e7c41f28c11b3ff330d72a9"
+  dependencies:
+    base-64 "0.1.0"
+    glob "7.0.6"
+
 react-native-gesture-handler@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.6.tgz#8a672ca0c7a1b706dffee4e230e5cf0197d2cdb8"
@@ -5002,12 +5099,26 @@ react-native-gesture-handler@1.0.6:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-indicators@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-indicators/-/react-native-indicators-0.13.0.tgz#001824bba194b1ca6e654d903beaf0168d4e6ac8"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-loading-spinner-overlay@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/react-native-loading-spinner-overlay/-/react-native-loading-spinner-overlay-0.5.2.tgz#b7bcd277476d596615fd7feee601789f9bdc7acc"
+
 react-native-maps@0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.21.0.tgz#005f58e93d7623ad59667e8002101970ddf235c2"
   dependencies:
     babel-plugin-module-resolver "^2.3.0"
     babel-preset-react-native "1.9.0"
+
+react-native-permissions@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-1.1.1.tgz#4876004681ff8556454613d85249b01baff9b35b"
 
 react-native-platform-touchable@^1.1.1:
   version "1.1.1"
@@ -5033,6 +5144,12 @@ react-native-screens@^1.0.0-alpha.10, react-native-screens@^1.0.0-alpha.5:
   version "1.0.0-alpha.12"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.12.tgz#5953c39c9dbfbe324610005e07d85a416081c48c"
 
+react-native-simple-store@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-simple-store/-/react-native-simple-store-1.3.0.tgz#84953a7b007b8e3c50ec768478e98dc3636ef092"
+  dependencies:
+    lodash.merge "4.6.0"
+
 react-native-svg@6.2.2:
   version "6.2.2"
   resolved "http://registry.npmjs.org/react-native-svg/-/react-native-svg-6.2.2.tgz#5803cddce374a542b4468c38a2474fca32080685"
@@ -5040,6 +5157,14 @@ react-native-svg@6.2.2:
     color "^2.0.1"
     lodash "^4.16.6"
     pegjs "^0.10.0"
+
+react-native-swipeout@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/react-native-swipeout/-/react-native-swipeout-2.3.6.tgz#47dac8a835825cf3f2eef9e495574a3d9ab6d3fa"
+  dependencies:
+    create-react-class "^15.6.0"
+    prop-types "^15.5.10"
+    react-tween-state "^0.1.5"
 
 react-native-tab-view@^0.0.77:
   version "0.0.77"
@@ -5212,6 +5337,13 @@ react-transform-hmr@^1.0.4:
   dependencies:
     global "^4.3.0"
     react-proxy "^1.1.7"
+
+react-tween-state@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-tween-state/-/react-tween-state-0.1.5.tgz#e98b066551efb93cb92dd1be14995c2e3deae339"
+  dependencies:
+    raf "^3.1.0"
+    tween-functions "^1.0.1"
 
 react@16.3.1:
   version "16.3.1"
@@ -5403,6 +5535,10 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
+requires-port@1.0.x:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -5548,6 +5684,15 @@ send@0.16.2:
     on-finished "~2.3.0"
     range-parser "~1.2.0"
     statuses "~1.4.0"
+
+sendbird@^3.0.81:
+  version "3.0.81"
+  resolved "https://registry.yarnpkg.com/sendbird/-/sendbird-3.0.81.tgz#0b5d9afaab16462b9bbe9f815e4e59ae9cd77936"
+  dependencies:
+    agentkeepalive "2.2.0"
+    form-data "2.1.2"
+    ws "6.0.0"
+    xhr2 "0.1.4"
 
 serialize-error@^2.1.0:
   version "2.1.0"
@@ -5986,6 +6131,10 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
+tween-functions@^1.0.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tween-functions/-/tween-functions-1.2.0.tgz#1ae3a50e7c60bb3def774eac707acbca73bbc3ff"
+
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
@@ -6057,6 +6206,13 @@ urix@^0.1.0:
 url-join@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.0.tgz#4d3340e807d3773bda9991f8305acdcc2a665d2a"
+
+url-parse@1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.1.9.tgz#c67f1d775d51f0a18911dd7b3ffad27bb9e5bd19"
+  dependencies:
+    querystringify "~1.0.0"
+    requires-port "1.0.x"
 
 url@0.10.3:
   version "0.10.3"
@@ -6240,6 +6396,12 @@ write-file-atomic@^2.1.0:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.2"
 
+ws@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-6.0.0.tgz#eaa494aded00ac4289d455bac8d84c7c651cef35"
+  dependencies:
+    async-limiter "~1.0.0"
+
 ws@^1.1.0:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.5.tgz#cbd9e6e75e09fc5d2c90015f21f0c40875e0dd51"
@@ -6267,6 +6429,10 @@ xcode@^0.9.1:
     pegjs "^0.10.0"
     simple-plist "^0.2.1"
     uuid "3.0.1"
+
+xhr2@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.1.4.tgz#7f87658847716db5026323812f818cadab387a5f"
 
 xml-name-validator@^3.0.0:
   version "3.0.0"

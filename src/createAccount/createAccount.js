@@ -14,7 +14,11 @@ import { CheckBox } from 'react-native-elements';
 import ImagePick from '../components/imagePicker/ImagePicker';
 import { connect } from 'react-redux';
 import Input from '../components/Input';
+import { Permissions, FileSystem } from 'expo';
+import store from 'react-native-simple-store';
 
+import { RNS3 } from 'react-native-aws3';
+import { aws } from '../keys';
 
 class CreateAccount extends Component {
   static navigationOptions = {
@@ -27,7 +31,7 @@ class CreateAccount extends Component {
 
   constructor(props) {
     super(props);
-
+   
     this.state = {
       firstName: 'First name',
       lastName: 'Last name',
@@ -41,25 +45,38 @@ class CreateAccount extends Component {
 
   handleSubmit = async(event) => {
     event.preventDefault();
-    await this.setState({image: this.props.image})
+    
+    let userInfo = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      weddingDate: this.state.weddingDate,
+      weddingLocation: this.state.weddingLocation,
+    }
+
+    let jsonFile = JSON.stringify(userInfo);
+    let userId = this.state.userID;
+    console.log(userId)
     let file = {
-      first: this.state.firstName,
-      last: this.state.lastName, 
-      image: this.state.image
-    };
+      uri: jsonFile,
+      name: 'userInfo',
+      type: 'text'
+    }
 
-    let jsonFile = JSON.stringify(file)
-    let name = 'alan';
-    const access = { level: "protected" };
+    const config = {
+      keyPrefix: `profile/${userId}`,
+      bucket: 'bridal-book-users',
+      region: 'us-west-2',
+      accessKey: aws.accessKeyId,
+      secretKey: aws.secretAccessKey,
+      successActionStatus: 201
+    }
 
-    Storage.configure({
-      bucket: 'bridalbook-userfiles-mobilehub-1144877802/users',
-  });
-
-    Storage.put(name, jsonFile, access);
-    this.props.navigation.navigate('Home');
+    RNS3.put(jsonFile, config)
+      .then((response)=>{
+        console.log(response)
+        console.log(response.body.postResponse.location)
+      })
   }
-
 
   async componentDidMount() {
     let userID =   this.props.auth.user.pool.clientId 

@@ -1,5 +1,20 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, AppState, AsyncStorage, PushNotificationIOS, StatusBar, StyleSheet, View } from 'react-native';
+
+
+// import FCM, {
+//   FCMEvent,
+//   NotificationType,
+//   NotificationActionType,
+//   RemoteNotificationResult,
+//   WillPresentNotificationResult
+// } from "react-native-fcm";
+import SendBird from 'sendbird';
+
+import {
+  sbRegisterPushToken
+} from './sendbird/sendBirdActions';
+
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import { Provider } from 'react-redux';
 import AppNavigator from './src/navigation/AppNavigator';
@@ -42,23 +57,23 @@ class App extends React.Component {
     isLoading: false
   };
 
-  // async componentDidMount() {
-  //   StatusBar.setHidden(true)
-  //   try {
-  //     const user = await Auth.currentAuthenticatedUser()
-  //     this.setState({ user, isLoading: false })
-  //   } catch (err) {
-  //     this.setState({ isLoading: false })
-  //   }
-  // }
-  // async componentWillReceiveProps(nextProps) {
-  //   try {
-  //     const user = await Auth.currentAuthenticatedUser()
-  //     this.setState({ user })
-  //   } catch (err) {
-  //     this.setState({ user: {} })
-  //   }
-  // }
+  async componentDidMount() {
+    StatusBar.setHidden(true)
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      this.setState({ user, isLoading: false })
+    } catch (err) {
+      this.setState({ isLoading: false })
+    }
+  }
+  async componentWillReceiveProps(nextProps) {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      this.setState({ user })
+    } catch (err) {
+      this.setState({ user: {} })
+    }
+  }
 
   render() {
  

@@ -1,10 +1,11 @@
-
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { ImagePicker, Permissions } from 'expo';
 import ImageButton from '../ImageButton';
 import { connect } from 'react-redux';
 import { addImage } from '../../actions';
+import { RNS3 } from 'react-native-aws3';
+import { aws } from '../../keys';
 
 class ImagePick extends Component {
 
@@ -57,12 +58,29 @@ class ImagePick extends Component {
       }
     };
 
-    handleImage = (pickerResult) => {
-      return {
-        uri: pickerResult.uri,
-        name: 'photo.jpg',
-        type: 'image/jpeg'
+    handleImage = (response) => {
+      let userId = this.props.auth.user.pool.clientId 
+      console.log(userId)
+      let file = {
+        uri: response.uri,
+        name: 'image.png',
+        type: 'image/png'
       }
+
+      const config = {
+        keyPrefix: `profile/${userId}`,
+        bucket: 'bridal-book-users',
+        region: 'us-west-2',
+        accessKey: aws.accessKeyId,
+        secretKey: aws.secretAccessKey,
+        successActionStatus: 201
+      }
+
+      RNS3.put(file, config)
+        .then((response)=>{
+          console.log(response)
+          console.log(response.body.postResponse.location)
+        })
     }
 
     render() {
@@ -128,5 +146,7 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchImage: image => dispatch(addImage(image)),
 })
 
-export default connect(null, mapDispatchToProps)(ImagePick);
-
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps, mapDispatchToProps)(ImagePick);

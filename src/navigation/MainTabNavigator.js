@@ -21,17 +21,24 @@ import DisplayedTaskForm from '../DisplayedTaskForm/DisplayedTaskForm';
 // import AppDrop from '../AppDrop/AppDrop';
 // import InviteScreen from '../InviteScreen/InviteScreen';
 
-import Channels from '../Channels/Channels';
-import Menu from '../Menu/Menu';
-import Profile from '../Profile/Profile'
-import OpenChannel from '../OpenChannel/OpenChannel'
+// import Channels from '../Channels/Channels';
+// import Menu from '../Menu/Menu';
+// import Profile from '../Profile/Profile'
+// import OpenChannel from '../OpenChannel/OpenChannel'
+// import Chat from '../Chat/Chat';
+
+// import CreateAccount from '../createAccount/createAccount';
+import HomeCarousel from '../HomeCarousel/HomeCarousel';
+
 
 const HomeStack = createStackNavigator({
-  // Channels: Channels,
-  Menu: Menu,
-  Profile: Profile,
-  OpenChannel: OpenChannel,
+  // Menu: Menu,
+  // Profile: Profile,
+  // OpenChannel: OpenChannel,
+  // Chat: Chat,
+  // HomeCarousel: HomeCarousel,
   Home: HomeScreen,
+  CreateAccount: CreateAccount,
   AppDrop: AppDrop, 
 });
 

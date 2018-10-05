@@ -84,7 +84,7 @@
 				"TemplateURL": "https://s3.amazonaws.com/bridalbook-20180928171708-deployment/amplify-cfn-templates/auth/cognito8951b2d8-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "cognito8951b2d8_identitypool_8951b2d8",
-					"allowUnauthenticatedIdentities": false,
+					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
 					"lambdaLogPolicy": "cognito8951b2d8_lambda_log_policy",
 					"openIdLambdaRoleName": "cognito8951b2d8_openid_lambda_role",
@@ -125,6 +125,21 @@
 					"authRoleArn": "arn:aws:iam::835930148152:role/bridalbook-20180928171708-authRole",
 					"resourceName": "cognito8951b2d8",
 					"authSelections": "identityPoolAndUserPool"
+				}
+			}
+		},
+		"storagebridalbookprofileinfo": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/bridalbook-20180928171708-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"Parameters": {
+					"bucketName": "bridalbookprofileinfo",
+					"authPolicyName": "s3_amplify_23a823b2",
+					"unauthPolicyName": "s3_amplify_23a823b2",
+					"authRoleName": "bridalbook-20180928171708-authRole",
+					"unauthRoleName": "bridalbook-20180928171708-unauthRole",
+					"authPermissions": "rw",
+					"unauthPermissions": "rw"
 				}
 			}
 		}

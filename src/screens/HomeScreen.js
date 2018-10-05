@@ -18,6 +18,7 @@ import { logOut } from '../actions';
 import { colors } from '../theme';
 
 import BridalLogo from '../BridalLogo';
+import HomeCarousel from '../HomeCarousel/HomeCarousel';
 
 class Home extends Component {
   static navigationOptions = ({navigation}) => ({
@@ -43,7 +44,7 @@ class Home extends Component {
 
 
   componentDidMount() {
-  
+
   }
 
 
@@ -64,6 +65,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+          <HomeCarousel />
         <View style={styles.homeContainer}>
           <Text style={styles.welcome}>Welcome</Text>
           <Text onPress={this.logout.bind(this)} style={styles.welcome}>Logout</Text>
@@ -76,8 +78,8 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     flex: 1
   },
   homeContainer: {

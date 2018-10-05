@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const _renderNickname = (nickname) => {
-    return nickname ? (
-        <Text style={{fontSize: 9, color: '#7048e8', paddingBottom: 4}}>{nickname}</Text>
+const _renderNickname = (username) => {
+    return username ? (
+        <Text style={{fontSize: 9, color: '#7048e8', paddingBottom: 4}}>{username}</Text>
     ) : null;
 }
 
@@ -11,7 +11,7 @@ const MessageBubble = (props) => {
     return (
         <View style={{maxWidth: 250, padding: 8, borderRadius: 8, 
         backgroundColor: props.isUser ? '#5F3DC4' : '#e6e6e6'}}>
-            { props.isUser || !props.isShow ? null : _renderNickname(props.nickname) }
+            { props.isUser || !props.isShow ? null : _renderNickname(props.username) }
             <View style={{}}>
                 {props.message}
             </View>

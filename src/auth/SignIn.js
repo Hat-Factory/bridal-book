@@ -15,11 +15,11 @@ import { NavigationActions } from 'react-navigation';
 
 import { Auth } from 'aws-amplify';
 import { connect } from 'react-redux';
-import { Storage } from 'aws-amplify';
-import xmlToJson from '../xmlCleaner';
+// import { Storage } from 'aws-amplify';
+// import xmlToJson from '../xmlCleaner';
 
 import { authenticate, confirmUserLogin } from '../actions';
-import { sendbirdLogin } from '../sendbirdActions';
+import { sendbirdLogin } from '../../sendbird/sendBirdActions';
 // let sendbird = require('sendbird')
 import SendBird from 'sendbird';
 const sb = new SendBird({appId: '9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23'})
@@ -125,19 +125,7 @@ class SignIn extends Component {
     await this.props.dispatchConfirmUserLogin(authCode)
     this.props.dispatchsendbirdLogin(sendbirdInfo.userId, sendbirdInfo.username)
     this.sendbirdInit()
-  //   await Storage.configure({
-  //     bucket: 'bridalbook-userfiles-mobilehub-1144877802/users'
-  // });
 
-  //   let info = await Storage.get(`${userID}`, { level: 'protected' })
-  //   await console.log('***',info)
-
-  //   const data = await fetch(info)
-  //   // const response = await data.json()
-  //   let promiseClean = await Promise.resolve(data)
-  //   console.log(promiseClean)
-  //   // let clean = await xmlToJson(promiseClean)
-  //   // console.log(clean)
   }
   
   render() {

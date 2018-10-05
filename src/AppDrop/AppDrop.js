@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
   View,
   Text,
@@ -10,73 +10,95 @@ import {
 } from 'react-native'
 
 import {withNavigation} from 'react-navigation';
+import { connect } from 'react-redux';
+import { Auth } from 'aws-amplify';
+import { logOut } from '../actions';
 
-const AppDrop = (props) => {
+class AppDrop extends Component{
+  constructor(props){
+    super(props)
+  }
+
+  logout() {
+    Auth.signOut()
+      .then(() => {
+        this.props.dispatchLogout()
+      })
+      .catch(err => {
+        console.log('err: ', err)
+      })
+  }
+
+  render(){
   return (
-    <View style={styles.container}>
-                  <Image style={styles.profilePic} source={require('../assets/user.png')}/>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('Home')
-        }
+      <View style={styles.container}>
+                    <Image style={styles.profilePic} source={require('../assets/user.png')}/>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Home')
+          }
+          >
+          <Text style={styles.boldButton}>HOME</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Home')
+          }
+          >
+          <Text style={styles.boldButton}>PROFILE</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('WeddingsHome')
+          }
         >
-        <Text style={styles.boldButton}>HOME</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('Home')
-        }
+          <Text style={styles.boldButton}>WEDDINGS</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('WeddingsHome')
+          }
         >
-        <Text style={styles.boldButton}>PROFILE</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('WeddingsHome')
-        }
-      >
-        <Text style={styles.boldButton}>WEDDINGS</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('WeddingsHome')
-        }
-      >
-        <Text style={styles.boldButton}>SETTINGS</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
-        }
-      >
-        <Text style={styles.button}>MESSAGES</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
-        }
-      >
-        <Text style={styles.button}>CALENDAR</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
-        }
-      >
-        <Text style={styles.button}>BOARDS</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('SignUp')
-        }
-      >
-        <Text style={styles.button}>TASKS</Text>
-      </TouchableOpacity>
-      <View style={styles.logOut}>
+          <Text style={styles.boldButton}>SETTINGS</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('SignUp')
           }
         >
-          <Text style={styles.logOutText}>LOG OUT</Text>
-        </TouchableOpacity> 
-      </View>      
-    </View>
-    
-  )
+          <Text style={styles.button}>MESSAGES</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('SignUp')
+          }
+        >
+          <Text style={styles.button}>CALENDAR</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('SignUp')
+          }
+        >
+          <Text style={styles.button}>BOARDS</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('SignUp')
+          }
+        >
+          <Text style={styles.button}>TASKS</Text>
+        </TouchableOpacity>
+        <View style={styles.logOut}>
+          <TouchableOpacity
+            onPress={this.logout.bind(this)
+            }
+          >
+            <Text style={styles.logOutText}>LOG OUT</Text>
+          </TouchableOpacity> 
+        </View>      
+      </View>
+    )
+  }
 }
 
-export default withNavigation(AppDrop);
+const mapDispatchToProps = {
+  dispatchLogout: () => logOut()
+}
+
+export default connect(null, mapDispatchToProps)(AppDrop);
 
 const styles = StyleSheet.create({
   container: {

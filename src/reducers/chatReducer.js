@@ -12,7 +12,7 @@ import {
   MESSAGE_RECEIVED,
   MESSAGE_UPDATED,
   MESSAGE_DELETED
-} from '../actions/types';
+} from '../sendbirdActions/types';
 
 const INITAL_STATE = {
   list: [],

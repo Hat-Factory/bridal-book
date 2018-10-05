@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { MessageAvatar } from './MessageAvatar';
-import { MessageContainer } from './MessageContainer';
+import  MessageAvatar  from '../MessageAvatar/MessageAvatar';
+import MessageContainer  from '../MessageContainer/MessageContainer';
 
 class Message extends Component {
     constructor(props) {

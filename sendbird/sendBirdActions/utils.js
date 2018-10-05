@@ -1,42 +1,40 @@
-import { sbGetOpenChannel } from './openChannel';
 import SendBird from 'sendbird';
 
-export const sbCreatePreviousMessageListQuery = (channelUrl) => {
-    return new Promise((resolve, reject) => {
-        sbGetOpenChannel(channelUrl)
-        .then( (channel) => resolve(channel.createPreviousMessageListQuery()) )
-        .catch( (error) => reject(error) )
-    });
+export const sbGetChannelTitle = (channel) => {
+    if (channel.isOpenChannel()) {
+        return channel.name
+    } else {
+        const { members } = channel;
+        let nicknames = members.map((member) => {
+            return member.nickname
+        }).join(', ');
+        
+        if (nicknames.length > 21) {
+            nicknames = nicknames.substring(0, 17) + '...'
+        }
+
+        return nicknames;
+    }
 }
 
-export const sbGetMessageList = (previousMessageListQuery) => {
-    const limit = 30;
-    const reverse = true;
-    return new Promise((resolve, reject) => {
-        previousMessageListQuery.load(limit, reverse, (messages, error) => {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(messages);
-            }
-        })
-    });
-}
-
-export const sbSendTextMessage = (channel, textMessage, callback) => {
-    return channel.sendUserMessage(textMessage, (message, error) => {
-        callback(message, error);
-    });
+export const sbIsImageMessage = (message) => {
+    return message.type.match(/^image\/.+$/);
 }
 
 export const sbAdjustMessageList = (list) => {
     return list.map((message, i) => {
         message['time'] = sbUnixTimestampToDate(message.createdAt);
-        message.sender['isShow'] = true;
+        message['readCount'] = 0;
         if (message.isUserMessage() || message.isFileMessage()) {
             message['isUser'] = (message.sender.userId === SendBird.getInstance().getCurrentUserId());
         } else {
             message['isUser'] = false;
+        }
+        if (message.sender) {
+            message.sender['isShow'] = true;
+            if(!message.sender.profileUrl) {
+                message.sender.profileUrl = 'default-image';
+            }
         }
 
         if (i < list.length - 1) {

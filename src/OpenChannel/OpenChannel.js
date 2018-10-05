@@ -1,122 +1,126 @@
-import React, { Component } from 'react';
-import { View, ListView, TouchableHighlight } from 'react-native';
-import { connect } from 'react-redux';
-import { getOpenChannelList } from '../sendbirdActions'
-import { Button, ListItem, Avatar } from 'react-native-elements';
-import { sbCreateOpenChannelListQuery } from '../sendbirdActions';
+// import React, { Component } from 'react';
+// import { View, ListView, TouchableHighlight } from 'react-native';
+// import { connect } from 'react-redux';
+// import { getOpenChannelList } from '../sendbirdActions'
+// import { Button, ListItem, Avatar } from 'react-native-elements';
+// import { sbCreateOpenChannelListQuery } from '../sendbirdActions';
 
-class OpenChannel extends Component {
-    static navigationOptions = {
-        title: 'OPEN CHANNEL'
-    }
+// class OpenChannel extends Component {
+//     static navigationOptions = {
+//         title: 'OPEN CHANNEL'
+//     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            refresh: false,
-            openChannelListQuery: null,
-            list: [],
-            openChannelList: ds.cloneWithRows([])
-        }
-    }
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             refresh: false,
+//             openChannelListQuery: null,
+//             list: [],
+//             openChannelList: ds.cloneWithRows([])
+//         }
+//     }
 
-    componentDidMount() {
-        this._initOpenChannelList();
-    }
+//     componentDidMount() {
+//         this._initOpenChannelList();
+//     }
 
-    componentWillReceiveProps(props) {
-        // const { list } = props;
-        let list = this.props.openChannel.list;
-        console.log(list)
-        if (list !== this.props.list) {
-            if (list.length === 0) {
-                this.setState({ list: [], openChannelList: ds.cloneWithRows([]) });    
-            } else {
-                const newList = [...this.state.list, ...list];
-                this.setState({ list: newList, openChannelList: ds.cloneWithRows(newList) });
-            }
-        }
-    }
+//     componentWillReceiveProps(props) {
+//         // const { list } = props;
+//         let list = this.props.openChannel.list;
+//         console.log(list)
+//         if (list !== this.props.list) {
+//             if (list.length === 0) {
+//                 this.setState({ list: [], openChannelList: ds.cloneWithRows([]) });    
+//             } else {
+//                 const newList = [...this.state.list, ...list];
+//                 this.setState({ list: newList, openChannelList: ds.cloneWithRows(newList) });
+//             }
+//         }
+//     }
 
-    _initOpenChannelList = () => {
-        this._getOpenChannelList(true);
-    }
+//     _initOpenChannelList = () => {
+//         this._getOpenChannelList(true);
+//     }
 
-    _getOpenChannelList = (init) => {
-        if (init) {
-            const openChannelListQuery = sbCreateOpenChannelListQuery();
-            this.setState({ openChannelListQuery }, () => {
-                this.props.dispatchChannelList(this.state.openChannelListQuery);        
-            });
-        } else {
-            this.props.dispatchChannelList(this.state.openChannelListQuery);
-        }
-    }
+//     _getOpenChannelList = (init) => {
+//         if (init) {
+//             const openChannelListQuery = sbCreateOpenChannelListQuery();
+//             this.setState({ openChannelListQuery }, () => {
+//                 this.props.dispatchChannelList(this.state.openChannelListQuery);        
+//             });
+//         } else {
+//             this.props.dispatchChannelList(this.state.openChannelListQuery);
+//         }
+//     }
     
-    _onListItemPress = (channelUrl) => {
-        // TODO: enter channel
-    }
+//     _onListItemPress = (channelUrl) => {
+//             this.props.navigation.navigate(
+//                 'Chat', 
+//                 { channelUrl: channelUrl }
+//             );
+        
+//     }
 
-    _handleScroll = (e) => {
-        if (e.nativeEvent.contentOffset.y < -100 && !this.state.refresh) {
-            this.setState({ list: [], openChannelList: ds.cloneWithRows([]), refresh: true }, () => {
-                this._initOpenChannelList();
-            });
-        }
-    }
+//     _handleScroll = (e) => {
+//         if (e.nativeEvent.contentOffset.y < -100 && !this.state.refresh) {
+//             this.setState({ list: [], openChannelList: ds.cloneWithRows([]), refresh: true }, () => {
+//                 this._initOpenChannelList();
+//             });
+//         }
+//     }
     
-    _renderList = (rowData) => {
-        return (
-            <ListItem
-                component={TouchableHighlight}
-                containerStyle={{backgroundColor: '#fff'}}
-                key={rowData.url}
-                avatar={(
-                    <Avatar 
-                        source={{uri: rowData.coverUrl}} 
-                    />
-                )}
-                title={rowData.name.length > 30 ? rowData.name.substring(0, 26) + '...' : rowData.name}
-                titleStyle={{fontWeight: '500', fontSize: 16}}
-                onPress={ () => this._onListItemPress(rowData.url) }
-            />
-        )
-    }
+//     _renderList = (rowData) => {
+//         return (
+//             <ListItem
+//                 component={TouchableHighlight}
+//                 containerStyle={{backgroundColor: '#fff'}}
+//                 key={rowData.url}
+//                 avatar={(
+//                     <Avatar 
+//                         source={{uri: rowData.coverUrl}} 
+//                     />
+//                 )}
+//                 title={rowData.name.length > 30 ? rowData.name.substring(0, 26) + '...' : rowData.name}
+//                 titleStyle={{fontWeight: '500', fontSize: 16}}
+//                 onPress={ () => this._onListItemPress(rowData.url) }
+//             />
+//         )
+//     }
 
-    render() {
-        return (
-            <View>
-                <ListView
-                    enableEmptySections={true}
-                    renderRow={this._renderList}
-                    dataSource={this.state.openChannelList}
-                    onEndReached={() => this._getOpenChannelList(false)}
-                    onEndReachedThreshold={-50}
-                    onScroll={this._handleScroll}
-                />
-            </View>
-        )
-    }
-}
-
-const styles = {
-};
-
-const ds = new ListView.DataSource({
-    rowHasChanged: (r1, r2) => r1 !== r2
-});
-
-// function mapStateToProps({ openChannel })  {
-//     const { list } = openChannel;
-//     return { list };
+//     render() {
+//         return (
+//             <View>
+//                 <ListView
+//                     enableEmptySections={true}
+//                     renderRow={this._renderList}
+//                     dataSource={this.state.openChannelList}
+//                     onEndReached={() => this._getOpenChannelList(false)}
+//                     onEndReachedThreshold={-50}
+//                     onScroll={this._handleScroll}
+//                 />
+//             </View>
+//         )
+//     }
 // }
 
-const mapStateToProps = state => ({
- openChannel: state.openChannel
-})
+// const styles = {
+// };
 
-const mapDispatchToProps = dispatch => ({
-    dispatchChannelList: (channelList) => dispatch(getOpenChannelList(channelList))
-})
+// const ds = new ListView.DataSource({
+//     rowHasChanged: (r1, r2) => r1 !== r2
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(OpenChannel);
+// // function mapStateToProps({ openChannel })  {
+// //     const { list } = openChannel;
+// //     return { list };
+// // }
+
+// const mapStateToProps = state => ({
+//  openChannel: state.openChannel
+// })
+
+// const mapDispatchToProps = dispatch => ({
+//     dispatchChannelList: (channelList) => dispatch(getOpenChannelList(channelList))
+// })
+
+// export default connect(mapStateToProps, mapDispatchToProps)(OpenChannel);

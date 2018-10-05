@@ -1,42 +1,45 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
-import { sendbirdLogout, initMenu } from '../sendbirdActions';
-import { Button } from 'react-native-elements';
+import { sendbirdLogout, initMenu } from '../actions';
+import {
+    sbUnregisterPushToken
+  } from '../sendBirdActions';
+import { NavigationActions } from 'react-navigation'
+import { Button, HR, Spinner } from '../components';
 
 class Menu extends Component {
     static navigationOptions = {
-        title: 'MENU'
-    }
+        title: 'Sendbird'
+    };
 
     constructor(props) {
         super(props);
+        this.state = {
+            isLoading: false
+        };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.initMenu();
     }
 
     componentWillReceiveProps(props) {
-        let isDisconnected = this.props.menu.isDisconnected
-        // const { isDisconnected } = props;
-        if (isDisconnected) {
-            const resetAction = NavigationActions.reset({
-                index: 0,
-                actions: [
-                    NavigationActions.navigate({ routeName: 'Login' })
-                ]
-            })
-            this.setState({ isLoading: false }, () => {
+        AsyncStorage.getItem("user", (err, result) => {
+            if(!result) {
+                const resetAction = NavigationActions.reset({
+                    index: 0,
+                    actions: [
+                        NavigationActions.navigate({ routeName: 'Login' })
+                    ]
+                })
                 this.props.navigation.dispatch(resetAction);
-            })
-        }
+            }
+        });
     }
 
     _onProfileButtonPress = () => {
-        this.props.navigation.navigate('Profile')
-        console.log('profile working')
+        this.props.navigation.navigate('Profile');
     }
 
     _onOpenChannelPress = () => {
@@ -44,16 +47,23 @@ class Menu extends Component {
     }
 
     _onGroupChannelPress = () => {
-        // TODO: GroupChannel screen
+        this.props.navigation.navigate('GroupChannel');
     }
 
     _onDisconnectButtonPress = () => {
-        this.props.sendbirdLogout();
+        this.setState({ isLoading: true }, () => {
+            sbUnregisterPushToken()
+                .then(res => {
+                    this.props.sendbirdLogout();
+                })
+                .catch(err => {});
+        });
     }
 
     render() {
         return (
-            <View style={{backgroundColor: '#fff', flex: 1}}>
+            <View style={styles.containerViewStyle}>
+                <Spinner visible={this.state.isLoading} />
                 <Button
                     containerViewStyle={styles.menuViewStyle}
                     buttonStyle={styles.buttonStyle}
@@ -63,6 +73,7 @@ class Menu extends Component {
                     title='Profile'
                     onPress={this._onProfileButtonPress}
                 />
+                <HR />
                 <Button
                     containerViewStyle={styles.menuViewStyle}
                     buttonStyle={styles.buttonStyle}
@@ -72,6 +83,7 @@ class Menu extends Component {
                     title='Open Channel' 
                     onPress={this._onOpenChannelPress}
                 />
+                <HR />
                 <Button
                     containerViewStyle={styles.menuViewStyle}
                     buttonStyle={styles.buttonStyle}
@@ -81,6 +93,7 @@ class Menu extends Component {
                     title='Group Channel' 
                     onPress={this._onGroupChannelPress}
                 />
+                <HR />
                 <Button
                     containerViewStyle={styles.menuViewStyle}
                     buttonStyle={styles.buttonStyle}
@@ -91,10 +104,18 @@ class Menu extends Component {
                     title='Disconnect' 
                     onPress={this._onDisconnectButtonPress}
                 />
+                <HR />
             </View>
         )
     }
 }
+
+function mapStateToProps({ menu }) {
+    const { isDisconnected } = menu;
+    return { isDisconnected };
+};
+
+export default connect(mapStateToProps, { sendbirdLogout, initMenu })(Menu);
 
 const styles = {
     containerViewStyle: {
@@ -110,14 +131,3 @@ const styles = {
         paddingLeft: 14
     }
 };
-
-// function mapStateToProps({ menu }) {
-//     const { isDisconnected } = menu;
-//     return { isDisconnected };
-// };
-
-const mapStateToProps = state => ({
-  menu: state.menu
-})
-
-export default connect(mapStateToProps, { sendbirdLogout, initMenu })(Menu);

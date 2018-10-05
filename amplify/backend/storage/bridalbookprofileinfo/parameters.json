@@ -1,0 +1,9 @@
+{
+    "bucketName": "bridalbookprofileinfo",
+    "authPolicyName": "s3_amplify_23a823b2",
+    "unauthPolicyName": "s3_amplify_23a823b2",
+    "authRoleName": "bridalbook-20180928171708-authRole",
+    "unauthRoleName": "bridalbook-20180928171708-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": "rw"
+}

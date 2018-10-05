@@ -4,7 +4,7 @@ import {
   UPDATE_PROFILE_SUCCESS,
   UPDATE_PROFILE_FAIL
 } from './types';
-import { sbGetCurrentInfo, sbUpdateProfile } from '../sendbirdActions';
+import { sbGetCurrentInfo, sbUpdateProfile } from '../sendBirdActions';
 
 export const initProfile = () => {
   return { type: INIT_PROFILE }
@@ -17,9 +17,9 @@ export const getCurrentUserInfo = () => {
   }
 }
 
-export const updateProfile = (username) => {
+export const updateProfile = (nickname) => {
   return (dispatch) => {
-      sbUpdateProfile(username)
+      sbUpdateProfile(nickname)
       .then((user) => updateSuccess(dispatch, user))
       .catch((error) => updateFail(dispatch, error))
   }
@@ -28,7 +28,7 @@ export const updateProfile = (username) => {
 const updateFail = (dispatch, error) => {
   dispatch({ 
       type: UPDATE_PROFILE_FAIL,
-      error: error 
+      error: error
   });
 }
 
