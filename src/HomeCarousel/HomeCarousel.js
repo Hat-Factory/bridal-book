@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View, ScrollView, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Dimensions, Text } from 'react-native';
 import Slide from '../Slide/Slide';
 
 const { width } = Dimensions.get('window');
@@ -49,6 +49,7 @@ class HomeCarousel extends Component {
               <Slide {...slide}/>
             ))}
           </ScrollView>
+          <Text style={styles.update}>Updates</Text>
         </View>
       );
     }
@@ -66,6 +67,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     width,
     paddingTop: 50,
-    paddingLeft: 30
+    paddingLeft: 30,
+    paddingBottom: 10
   },
+  update: {
+    fontSize: 14,
+    color: '#9b9b9b'
+  }
 });
