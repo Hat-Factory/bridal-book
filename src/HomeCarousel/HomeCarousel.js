@@ -11,7 +11,26 @@ class HomeCarousel extends Component {
     super(props)
 
     this.state = {
-      slides: [{name:'alan'}, {name:'bj'}, {name:'becci'}]
+      slides: [
+        {
+          title: "Katie's Bridal Shower", 
+          desc: "Hey guys! Katie’s Bridal Shower is coming up in the next month and I wantd to get the event on our…", 
+          month:'May 20 2018', 
+          time:'6:00pm EST'
+        }, 
+        {
+          title: "Katie's Bridal Shower", 
+          desc: "Hey guys! Katie’s Bridal Shower is coming up in the next month and I wantd to get the event on our…", 
+          month:'May 20 2018', 
+          time:'6:00pm EST'
+        }, 
+        {
+          title: "Katie's Bridal Shower", 
+          desc: "Hey guys! Katie’s Bridal Shower is coming up in the next month and I wantd to get the event on our…", 
+          month:'May 20 2018', 
+          time:'6:00pm EST'
+        }
+      ]
     }
   }
   render() {
@@ -45,10 +64,8 @@ const styles = StyleSheet.create({
   scrollContainer: {
     height,
     backgroundColor: '#f8f8f8',
-    width
-  },
-  image: {
     width,
-    height,
+    paddingTop: 50,
+    paddingLeft: 30
   },
 });
