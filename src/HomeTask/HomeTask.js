@@ -36,13 +36,18 @@ class Task extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <TouchableHighlight
-          onPress={this.handlePress}
-        >
-          <View styles={styles.titleContainer}>
-            <Text style={styles.title}>{this.props.taskTitle}</Text>
+        <View style={styles.textContainer}>
+          <TouchableHighlight
+            onPress={this.handlePress}
+          >
+            <View styles={styles.titleContainer}>
+              <Text style={styles.title}>{this.props.taskTitle}</Text>
+            </View>
+          </TouchableHighlight>
+          <View>
+            <Text style={styles.desc}>{this.props.taskDesc}</Text>
           </View>
-        </TouchableHighlight>
+        </View>
         <View style={styles.clearButtonContainer}>
               <Image style={styles.clearButton} source={require('../assets/clear-button.png')}/>
           </View>
@@ -59,31 +64,21 @@ export default withNavigation(connect(null, mapDispatchToProps)(Task));
 
 const styles = StyleSheet.create({
   container: {
-    height: 60,
+    height: 75,
     width: 360,
     backgroundColor: '#fff',
     flexDirection: 'row',
-    marginTop: 10,
     borderBottomWidth: 2,
     borderColor: '#eeeeee',
     paddingLeft: 20 ,
     justifyContent: 'space-between'
   },
-  redBar: {
-    height: 50,
-    width: 3,
-    backgroundColor: '#ed7766',
-    marginRight: 25
-  },
   title: {
     color: '#4a4a4a',
     fontSize: 14,
-    marginTop: 15,
-    textAlign: 'center'
-    // marginRight: 150
+    marginBottom: 7
   },
   titleContainer: {
-    marginTop: 20,
     overflow: 'hidden',
     width: 290,
     height: 30,
@@ -91,11 +86,20 @@ const styles = StyleSheet.create({
   },
   clearButtonContainer: {
     paddingRight: 20,
-    paddingTop: 10,
+    paddingTop: 15,
   },
   clearButton: {
     height: 10,
     width: 10
+  },
+  textContainer: {
+    flexDirection: 'column',
+    width: 270,
+    paddingTop: 10
+  },
+  desc: {
+    color: '#9b9b9b',
+    fontSize: 12
   }
 
 })
