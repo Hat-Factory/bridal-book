@@ -63,7 +63,7 @@ class CreateAccount extends Component {
     }
 
     const config = {
-      keyPrefix: `profile/${userId}`,
+      keyPrefix: `profile/${userId}/info`,
       bucket: 'bridal-book-users',
       region: 'us-west-2',
       accessKey: aws.accessKeyId,

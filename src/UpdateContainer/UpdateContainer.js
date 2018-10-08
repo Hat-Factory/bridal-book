@@ -14,6 +14,9 @@ import {connect} from 'react-redux';
 // import Task from '../Task/Task';
 import DisplayTasks from '../displayTasks/displayTasks';
 import PresetTasks from '../PresetTasks/PresetTasks';
+import HomeTasks from '../HomeTasks/HomeTasks';
+
+
   class UpdateContainer extends Component {
 
 
@@ -28,7 +31,7 @@ import PresetTasks from '../PresetTasks/PresetTasks';
     render(){
       return (
         <View style={styles.container}>
-          <PresetTasks />
+          <HomeTasks />
         </View>
       )
     }
