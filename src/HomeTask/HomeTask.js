@@ -7,7 +7,8 @@ import {Text,
   TouchableHighlight, 
   TouchableOpacity,
   Modal,
-  Image} from 'react-native';
+  Image,
+} from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 
@@ -51,6 +52,7 @@ class Task extends Component {
         <View style={styles.clearButtonContainer}>
               <Image style={styles.clearButton} source={require('../assets/clear-button.png')}/>
           </View>
+        
       </View>
     )
   }

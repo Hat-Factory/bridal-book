@@ -27,7 +27,8 @@ import {Text,
   TouchableHighlight, 
   TouchableOpacity,
   Modal,
-  Image} from 'react-native';
+  Image,
+  ScrollView} from 'react-native';
 
 
 import { connect } from 'react-redux';
@@ -43,7 +44,9 @@ const HomeTasks = (props) => {
   })
   return (
     <View>
-      {displayTasks}
+      <ScrollView>
+        {displayTasks}
+      </ScrollView>
     </View>
   )
 }
