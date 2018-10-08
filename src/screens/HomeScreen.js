@@ -48,17 +48,6 @@ class Home extends Component {
 
   }
 
-
-  logout() {
-    Auth.signOut()
-      .then(() => {
-        this.props.dispatchLogout()
-      })
-      .catch(err => {
-        console.log('err: ', err)
-      })
-  }
-
   navigate() {
     this.props.navigation.navigate('Route1')
   }
