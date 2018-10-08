@@ -43,12 +43,8 @@ class Task extends Component {
             <Text style={styles.title}>{this.props.taskTitle}</Text>
           </View>
         </TouchableHighlight>
-        <View style={styles.checkBoxContainer}>
-          <CheckBox
-          checked={this.state.checked}
-          onPress={() => this.setState({ checked: !this.state.checked})}
-          containerStyle={styles.checkBox}
-        />
+        <View style={styles.clearButtonContainer}>
+              <Image style={styles.clearButton} source={require('../assets/clear-button.png')}/>
           </View>
       </View>
     )
@@ -70,7 +66,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderBottomWidth: 2,
     borderColor: '#eeeeee',
-    paddingLeft: 20  
+    paddingLeft: 20 ,
+    justifyContent: 'space-between'
   },
   redBar: {
     height: 50,
@@ -91,18 +88,14 @@ const styles = StyleSheet.create({
     width: 290,
     height: 30,
     justifyContent: 'flex-start'
-
   },
-  checkBox: {
-    backgroundColor: '#fff',
-    borderColor: '#fff',
-    height: 45,
-    // float: 'right'
-    // marginLeft: 20,
-    
+  clearButtonContainer: {
+    paddingRight: 20,
+    paddingTop: 10,
   },
-  checkBoxContainer: {
-    position: 'absolute',
-    left: 260
+  clearButton: {
+    height: 10,
+    width: 10
   }
+
 })
