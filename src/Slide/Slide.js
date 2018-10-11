@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   container: {
     height: 200,
     width: 300,
-    marginRight: 30,
+    marginRight: 15,
+    marginLeft: 15,
     backgroundColor: '#fff',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,

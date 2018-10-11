@@ -25,6 +25,7 @@ import BlockUser from "../.././sendbird/screens/BlockUser";
 import GroupChannel from "../.././sendbird/screens/GroupChannel";
 import GroupChannelInvite from "../.././sendbird/screens/GroupChannelInvite";
 
+import HomeScreen from '../screens/HomeScreen';
 
 const LoginNavigator =  createStackNavigator({
   // DisplayedTaskForm: DisplayedTaskForm,
@@ -53,6 +54,7 @@ const LoginNavigator =  createStackNavigator({
 //   navigationOptions: ({ navigation }) => ({
 //     headerTitleStyle: { fontWeight: "500" }
 //   })
+HomeScreen: HomeScreen,
 
   SignIn: {
     screen: SignIn,
