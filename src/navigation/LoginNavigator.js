@@ -54,7 +54,7 @@ const LoginNavigator =  createStackNavigator({
 //   navigationOptions: ({ navigation }) => ({
 //     headerTitleStyle: { fontWeight: "500" }
 //   })
-HomeScreen: HomeScreen,
+// HomeScreen: HomeScreen,
 
   SignIn: {
     screen: SignIn,
