@@ -44,6 +44,7 @@ class HomeCarousel extends Component {
             horizontal
             pagingEnabled
             showsHorizontalScrollIndicator={false}
+            style={styles.scroller}
           >
             {this.state.slides.map(slide => (
               <Slide {...slide}/>
@@ -67,11 +68,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     width,
     paddingTop: 50,
-    paddingLeft: 30,
+    // paddingLeft: 30,
     paddingBottom: 10
   },
   update: {
     fontSize: 14,
     color: '#9b9b9b'
+  },
+  scroller: {
+    // width: 350
+    paddingLeft: 30
   }
 });
